@@ -1,0 +1,17 @@
+{
+    "name": "atik/dreamit-elementor-extension",
+    "description": "Awesome Elementor Extension",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Atik",
+            "email": "atikulislam94@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}
