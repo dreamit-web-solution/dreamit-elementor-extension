@@ -42,7 +42,7 @@ class VideoBox extends Widget_Base{
                         'default' => [
                             'url' => '#'
                         ]
-					],
+					]
 	        );
 	        $this->add_control(
 	        	'youtube_video_icon',
@@ -52,7 +52,7 @@ class VideoBox extends Widget_Base{
 						'default' => [
 							'value' => 'fas fa-play',
 						],
-					],
+					]
 	        );
         $this->end_controls_section();
 
@@ -68,7 +68,7 @@ class VideoBox extends Widget_Base{
 						'label' => __( 'Video URL', 'itsoft' ),
 						'type' => Controls_Manager::URL,
 						'label_block' => true,
-					],
+					]
 	        );
 	        $this->add_control(
 	        	'vimeo_video_icon',
@@ -78,7 +78,7 @@ class VideoBox extends Widget_Base{
 						'default' => [
 							'value' => 'fas fa-play',
 						],
-					],
+					]
 	        );
         $this->end_controls_section();
 
@@ -99,9 +99,35 @@ class VideoBox extends Widget_Base{
 				]
 			);
         $this->end_controls_section();
-/**
- * Style Tab
- */
+
+/*
+==========
+Style Tab
+==========
+*/
+
+		$this->start_controls_section(
+			'general_section',
+			[
+				'label' => __( 'General', 'dreamit-elementor-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'select_style',
+				[
+					'label' => __( 'Select Style', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::SELECT,
+					'options' => [
+						'one' => __( 'One', 'dreamit-elementor-extension' ),
+						'two' => __( 'Two', 'dreamit-elementor-extension' ),
+					],
+					'default' => 'one',
+					
+				]
+			);
+		$this->end_controls_section();
 
 	}
 
@@ -114,9 +140,11 @@ class VideoBox extends Widget_Base{
 		?>
 
 
+			<?php if($settings['select_style']=='one'){ ?>
+
 			<div id="parallax-video" class="single-video">
 			
-				<?php if( !$settings['background_image']['url'] ){ ?>
+				<?php if( !empty($settings['background_image']['url']) ){ ?>
 				<div class="em-video-image">	
 					<img src="<?php echo $settings['background_image']['url']; ?>" alt="" />
 				</div>
@@ -138,7 +166,30 @@ class VideoBox extends Widget_Base{
 					</div>
 					
 				</div>
-			</div>	
+			</div>
+
+			<?php }elseif($settings['select_style']=='two'){ ?>
+
+			<div id="parallax-video" class="single-video style-two">
+				
+				<div class="choose-video-icon">	
+
+					<div class="video-icon">
+						
+						<?php if( !empty($settings['youtube_video_url']['url']) ){ ?>
+						<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo $em_youtube; ?>"><?php \Elementor\Icons_Manager::render_icon( $settings['youtube_video_icon'], [ 'aria-hidden' => 'true' ] ); ?></a>
+						<?php } ?>
+						
+						<?php if( !empty($settings['vimeo_video_url']['url']) ){ ?>
+						<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo $em_vimeo; ?>"><?php \Elementor\Icons_Manager::render_icon( $settings['vimeo_video_icon'], [ 'aria-hidden' => 'true' ] ); ?></a>
+						<?php } ?>
+						
+					</div>
+					
+				</div>
+			</div>
+
+			<?php } ?>	
 
 
 
