@@ -158,6 +158,14 @@ Style Tab
 						'selector' => '{{WRAPPER}} .icon-box-icon .icon i',
 					]
 				);
+
+				$this->add_group_control(
+					Group_Control_Typography::get_type(),
+					[
+						'name' => 'icon_typography',
+						'selector' => '{{WRAPPER}} .icon-box-icon .icon i',
+					]
+				);
 			
 			$this->end_controls_tab();
 			
@@ -188,92 +196,29 @@ Style Tab
 						'selector' => '{{WRAPPER}} .icon-box-icon .icon:hover i',
 					]
 				);
+
+				$this->add_group_control(
+					Group_Control_Typography::get_type(),
+					[
+						'name' => 'icon_hover_typography',
+						'selector' => '{{WRAPPER}} .icon-box:hover .icon-box-icon .icon i',
+					]
+				);
 			
 			$this->end_controls_tab();
 			
 		$this->end_controls_tabs();
 
 			$this->add_responsive_control(
-				'icon_size',
+				'icon_margin',
 				[
-					'label' => __( 'Size', 'itsoft' ),
-					'type' => Controls_Manager::SLIDER,
-					'range' => [
-						'px' => [
-							'min' => 6,
-							'max' => 300,
-						],
-					],
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
-						'{{WRAPPER}} .icon-box-icon .icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .icon-box .icon-box-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 					'separator' => 'before',
-				]
-			);
-			$this->add_control(
-				'height',
-				[
-					'label' => __( 'Height', 'itsoft' ),
-					'type' => Controls_Manager::SLIDER,
-					'size_units' => [ 'px', '%' ],
-					'range' => [
-						'px' => [
-							'min' => 0,
-							'max' => 1000,
-							'step' => 5,
-						],
-						'%' => [
-							'min' => 0,
-							'max' => 100,
-						],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .icon-box .icon-box-icon .icon i' => 'height: {{SIZE}}{{UNIT}};',
-					],
-				]
-			);
-			$this->add_control(
-				'width',
-				[
-					'label' => __( 'Width', 'itsoft' ),
-					'type' => Controls_Manager::SLIDER,
-					'size_units' => [ 'px', '%' ],
-					'range' => [
-						'px' => [
-							'min' => 0,
-							'max' => 1000,
-							'step' => 5,
-						],
-						'%' => [
-							'min' => 0,
-							'max' => 100,
-						],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .icon-box .icon-box-icon .icon i' => 'width: {{SIZE}}{{UNIT}};',
-					],
-				]
-			);
-			$this->add_control(
-				'line-height',
-				[
-					'label' => __( 'Line Height', 'itsoft' ),
-					'type' => Controls_Manager::SLIDER,
-					'size_units' => [ 'px', '%' ],
-					'range' => [
-						'px' => [
-							'min' => 0,
-							'max' => 1000,
-							'step' => 5,
-						],
-						'%' => [
-							'min' => 0,
-							'max' => 100,
-						],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .icon-box .icon-box-icon .icon i' => 'line-height: {{SIZE}}{{UNIT}};',
-					],
 				]
 			);
 
@@ -304,7 +249,6 @@ Style Tab
 				[
 					'name' => 'title_one_typography',
 					'label' => __( 'Typography', 'itsoft' ),
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .icon-box-content h2',
 				]
 			);
@@ -335,7 +279,6 @@ Style Tab
 				[
 					'name' => 'description_typography',
 					'label' => __( 'Typography', 'itsoft' ),
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .icon-box-content p',
 				]
 			);
