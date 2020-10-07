@@ -116,10 +116,11 @@ class VideoBox extends Widget_Base{
 
 			<div id="parallax-video" class="single-video">
 			
-				
+				<?php if( !$settings['background_image']['url'] ){ ?>
 				<div class="em-video-image">	
 					<img src="<?php echo $settings['background_image']['url']; ?>" alt="" />
 				</div>
+				<?php } ?>
 									
 				
 				<div class="choose-video-icon">	
