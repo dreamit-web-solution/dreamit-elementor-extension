@@ -110,7 +110,7 @@ Style Tab
 			'general_section',
 			[
 				'label' => __( 'General', 'dreamit-elementor-extension' ),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
@@ -118,13 +118,93 @@ Style Tab
 				'select_style',
 				[
 					'label' => __( 'Select Style', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'options' => [
 						'one' => __( 'One', 'dreamit-elementor-extension' ),
 						'two' => __( 'Two', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
+				]
+			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'icon_section',
+			[
+				'label' => __( 'Icon', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+			$this->add_control(
+				'icon_color',
+				[
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .video-icon i' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_responsive_control(
+				'icon_size',
+				[
+					'label' => __( 'Icon Size', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'range' => [
+						'px' => [
+							'min' => 6,
+							'max' => 300,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .video-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_control(
+				'inner_size',
+				[
+					'label' => __( 'Inner Size', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .video-icon i' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_control(
+				'outer_size',
+				[
+					'label' => __( 'Outer Size', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .video-icon a' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
+					],
 				]
 			);
 		$this->end_controls_section();
