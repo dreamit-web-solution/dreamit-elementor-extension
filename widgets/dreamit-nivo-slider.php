@@ -4,6 +4,7 @@
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Typography;
 
 if(!defined('ABSPATH')) exit;
 
@@ -35,21 +36,220 @@ Style Tab
 */
 
 		$this->start_controls_section(
-			'general_section',
+			'subtitle_section',
 			[
-				'label' => __( 'General', 'dreamit-elementor-extension' ),
+				'label' => __( 'Subtitle', 'dreamit-elementor-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 			$this->add_control(
-				'icon_color',
+				'subtitle_color',
 				[
 					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
-						'{{WRAPPER}} .icon-box-icon .icon i' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .em-slider-sub-title' => 'color: {{VALUE}}',
 					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'subtitle_typography',
+					'selector' => '{{WRAPPER}} .em-slider-sub-title',
+				]
+			);
+			$this->add_responsive_control(
+				'subtitle_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .em-slider-sub-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'title_section',
+			[
+				'label' => __( 'Title', 'dreamit-elementor-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+			$this->add_control(
+				'title_color',
+				[
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .em-slider-title' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'title_typography',
+					'selector' => '{{WRAPPER}} .em-slider-title',
+				]
+			);
+			$this->add_responsive_control(
+				'title_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .em-slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'description_section',
+			[
+				'label' => __( 'Description', 'dreamit-elementor-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+			$this->add_control(
+				'description_color',
+				[
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .em-slider-descript' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'description_typography',
+					'selector' => '{{WRAPPER}} .em-slider-descript',
+				]
+			);
+			$this->add_responsive_control(
+				'description_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .em-slider-descript' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'button_section',
+			[
+				'label' => __( 'Button', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+			$this->start_controls_tab(
+				'style_normal_tab',
+				[
+					'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+				]
+			);
+			
+			$this->add_control(
+				'background_color',
+				[
+					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .em-button-button-area a' => 'background: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_control(
+				'text_color',
+				[
+					'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .em-button-button-area a' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			
+			$this->end_controls_tab();
+			
+			$this->start_controls_tab(
+				'style_hover_tab',
+				[
+					'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+				]
+			);
+
+			$this->add_control(
+				'hover_background_color',
+				[
+					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .em-button-button-area:hover a' => 'background: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_control(
+				'hover_text_color',
+				[
+					'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .em-button-button-area:hover a' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			
+			$this->end_controls_tab();
+			
+		$this->end_controls_tabs();
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'button_typography',
+					'selector' => '{{WRAPPER}} .em-button-button-area a',
+				]
+			);
+			$this->add_responsive_control(
+				'button_padding',
+				[
+					'label' => __( 'Padding', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .em-button-button-area a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_group_control(
+				\Elementor\Group_Control_Border::get_type(),
+				[
+					'name' => 'button_border',
+					'label' => __( 'Border', 'dreamit-elementor-extension' ),
+					'selector' => '{{WRAPPER}} .em-button-button-area a',
 				]
 			);
 		$this->end_controls_section();

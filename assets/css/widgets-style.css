@@ -3047,7 +3047,7 @@ Nivo Slider
 .em-button-button-area a {
     -moz-user-select: none;
     background: #0c5adb;
-    border: medium none;
+    border: 1px solid transparent;
     color: #fff;
     cursor: pointer;
     display: inline-block;
