@@ -2894,6 +2894,10 @@ Icon Box
 	color: #f12a02;
 }
 
+.icon-box.style-two{
+	display: block;
+}
+
 /*
 ==============
 Video Box
@@ -2966,9 +2970,243 @@ Video Box
 
 
 
+/*
+==============
+Nivo Slider
+==============
+*/
+
+.main-slider-area {
+	display: block;
+	position: relative;
+}
+.nivo-caption {
+	background: rgba(0, 0, 0, 0.0);
+	height: 100%;
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	overflow: visible !important;
+}
+
+.em_slider_inner {
+	margin: auto;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	    transform: translateY(-50%);
+}
+.nivoSlider {
+ overflow: visible; 
+}
+.em-slider-title {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 0;
+    font-weight: 400;
+    margin: 0;
+}
+.em-slider-sub-title {
+    font-size: 72px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 800;
+    display: block;
+    margin: 0;
+	letter-spacing: 2px;
+	line-height: 1.1;
+}
+
+.em-slider-descript {
+	color: #fff;
+}
+
+.em-slider-descript {
+    width: 48%;
+    text-align: left;
+    color: #fff;
+    margin: 20px 0 30px;
+    font-size: 18px;
+}
+
+.text-left .em-slider-descript {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+.text-center .em-slider-descript {
+	margin: 0 auto 31px;
+}
+
+.text-right .em-slider-descript {
+	margin-right: 0;
+	margin-left: auto;
+}
+.em-button-button-area a {
+    -moz-user-select: none;
+    background: #0c5adb;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding: 15px 41px;
+    text-align: center;
+    text-transform: uppercase;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-weight: 400;
+    margin-top: 17px;
+}
+.em-button-button-area a:hover {
+	background-color: #fff;
+	border-color: #fff;
+	color:#0c5adb;
+}
+.em-slider-button .withput-active {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.8);
+    margin-left: 7px;
+}
+.em-slider-button .withput-active:hover{
+	background:#fff; 
+	border-color:#fff; 
+	color:#0c5adb;
+}
+.em-button-button-area a i {
+	margin-left: 10px;
+	display: inline-block;
+}
+.text-left a.em-active-button {
+	margin-left: 0;
+}
+
+.em-slider-half-width {
+	width: 50%;
+}
+.text-center .em-button-button-area a {
+	margin: 0 15px;
+}
+.em-slider-left {
+	padding-right: 30px;
+}
+
+.em-slider-right {
+	padding-left: 30px;
+}
+
+.em-slider-full-width {
+	width: 85%;
+}
+
+.em-slider-half-width .em-slider-descript {
+	width: 100%;
+}
 
 
+/* directionNav */
 
+.em-nivo-slider-wrapper .nivo-directionNav {}
+
+.em-nivo-slider-wrapper .nivo-directionNav a {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 78px;
+    width: 50px;
+    line-height: 74px;
+    border: 0;
+    text-align: center;
+    display: block;
+    color: #0c5adb;
+    font-size: 28px;
+    left: 0;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    visibility: hidden;
+    background: #fff;
+}
+
+.em-nivo-slider-wrapper .nivo-directionNav .nivo-prevNav {}
+
+.em-nivo-slider-wrapper .nivo-directionNav .nivo-nextNav {
+	left: auto;
+	right: 0;
+}
+
+.em-nivo-slider-wrapper .nivo-directionNav a:hover {
+	background: #0c5adb;
+	border-color: #0c5adb;
+	color: #fff;
+}
+
+.em-nivo-slider-wrapper:hover .nivo-directionNav a {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	visibility: visible;
+	left: 50px;
+}
+
+.em-nivo-slider-wrapper:hover .nivo-directionNav .nivo-nextNav {
+	left: auto;
+	right: 50px;
+}
+
+
+/* controlNav */
+
+.em-nivo-slider-wrapper .nivo-controlNav {
+	top: 50%;
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 9;
+	left: 38px;
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+.em-nivo-slider-wrapper .nivo-controlNav {}
+
+.em-nivo-slider-wrapper .nivo-controlNav a {
+	background: #fff none repeat scroll 0 0;
+	border-radius: 50%;
+	cursor: pointer;
+	display: block;
+	font-size: 9px;
+	height: 17px;
+	margin: 8px 0;
+	width: 17px;
+	color: #0c5adb;
+	line-height: 17px;
+}
+
+.em-nivo-slider-wrapper .nivo-controlNav a:hover,
+.em-nivo-slider-wrapper .nivo-controlNav a.active {
+	background: #fff none repeat scroll 0 0;
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+.single_slide_img {
+	position: absolute;
+	top: -180px;
+	text-align: right;
+	left: 59%;
+}
 
 
 

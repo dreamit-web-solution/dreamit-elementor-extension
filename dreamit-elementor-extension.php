@@ -262,6 +262,7 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-counter-box.php');
 		require_once( __DIR__ . '/widgets/dreamit-icon-box.php' );
 		require_once( __DIR__ . '/widgets/dreamit-video-box.php' );
+		require_once( __DIR__ . '/widgets/dreamit-nivo-slider.php' );
 
 		// Register widget
 
@@ -281,6 +282,7 @@ final class DreamIT_Elementor_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CounterBox());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new IconBox() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new VideoBox() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new NivoSlider() );
 		
 		add_action( 'elementor/elements/categories_registered', [$this, 'add_category'] );
 

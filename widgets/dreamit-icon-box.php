@@ -17,7 +17,7 @@ class IconBox extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Icon Box', 'itsoft' );
+		return __( 'Icon Box', 'dreamit-elementor-extension' );
 	}
 
 	public function get_icon() {
@@ -33,21 +33,21 @@ class IconBox extends Widget_Base {
 		$this->start_controls_section(
 			'icon_section',
 			[
-				'label' => __( 'Icons', 'itsoft' ),
+				'label' => __( 'Icons', 'dreamit-elementor-extension' ),
 			]
 		);
 			$this->add_control(
 				'icons_type',
 				[
-				    'label' => esc_html__('Icon Type','itsoft'),
+				    'label' => esc_html__('Icon Type','dreamit-elementor-extension'),
 				    'type' => Controls_Manager::CHOOSE,
 				    'options' =>[
 					  'img' =>[
-						'title' =>esc_html__('Image','itsoft'),
+						'title' =>esc_html__('Image','dreamit-elementor-extension'),
 						'icon' =>'fa fa-picture-o',
 					  ],
 					  'icon' =>[
-						'title' =>esc_html__('Icon','itsoft'),
+						'title' =>esc_html__('Icon','dreamit-elementor-extension'),
 						'icon' =>'fa fa-info',
 					  ]
 				    ],
@@ -58,7 +58,7 @@ class IconBox extends Widget_Base {
 			 $this->add_control(
 				'select_icon',
 				[
-					'label' => esc_html__( 'Icon', 'itsoft' ),
+					'label' => esc_html__( 'Icon', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::ICON,
 					'condition'=>[
 						'icons_type'=> 'icon',
@@ -70,7 +70,7 @@ class IconBox extends Widget_Base {
 			$this->add_control(
 				'select_img',
 				[
-				    'label' => esc_html__('Image','itsoft'),
+				    'label' => esc_html__('Image','dreamit-elementor-extension'),
 				    'type'=>Controls_Manager::MEDIA,
 				    'default' => [
 					  'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -86,32 +86,32 @@ class IconBox extends Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => __( 'Title & Description', 'itsoft' ),
+				'label' => __( 'Title & Description', 'dreamit-elementor-extension' ),
 			]
 		);
 			$this->add_control(
 				'title_text',
 				[
-					'label' => __( 'Title', 'itsoft' ),
+					'label' => __( 'Title', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter your title', 'itsoft' ),
+					'placeholder' => __( 'Enter your title', 'dreamit-elementor-extension' ),
 					'label_block' => true,
-					'default' => __( 'This is the title', 'itsoft' ),
+					'default' => __( 'This is the title', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'description_text',
 				[
-					'label' => __( 'Description', 'itsoft' ),
+					'label' => __( 'Description', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXTAREA,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter your paragraph', 'itsoft' ),
-					'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'itsoft' ),
+					'placeholder' => __( 'Enter your paragraph', 'dreamit-elementor-extension' ),
+					'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'dreamit-elementor-extension' ),
 				]
 			);
 		$this->end_controls_section();
@@ -122,9 +122,60 @@ Style Tab
 */
 
 		$this->start_controls_section(
+			'general_section',
+			[
+				'label' => __( 'General', 'dreamit-elementor-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'select_style',
+				[
+					'label' => __( 'Select Style', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SELECT,
+					'options' => [
+						'one' => __( 'One', 'dreamit-elementor-extension' ),
+						'two' => __( 'Two', 'dreamit-elementor-extension' ),
+					],
+					'default' => 'one',
+				]
+			);
+			$this->add_control(
+				'text_align',
+				[
+					'label' => __( 'Alignment', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::CHOOSE,
+					'options' => [
+						'left' => [
+							'title' => __( 'Left', 'dreamit-elementor-extension' ),
+							'icon' => 'fa fa-align-left',
+						],
+						'center' => [
+							'title' => __( 'Center', 'dreamit-elementor-extension' ),
+							'icon' => 'fa fa-align-center',
+						],
+						'right' => [
+							'title' => __( 'Right', 'dreamit-elementor-extension' ),
+							'icon' => 'fa fa-align-right',
+						],
+					],
+					'default' => 'center',
+					'toggle' => true,
+					'selectors' => [
+					'{{WRAPPER}} .icon-box.style-two' => 'text-align: {{VALUE}};',
+					],
+					'condition'=>[
+						'select_style'=> 'two',
+					],
+				]
+			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'icon_section_style',
 			[
-				'label' => __( 'Icon', 'itsoft' ),
+				'label' => __( 'Icon', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -135,14 +186,14 @@ Style Tab
 			$this->start_controls_tab(
 				'style_normal_tab',
 				[
-					'label' => __( 'Normal', 'itsoft' ),
+					'label' => __( 'Normal', 'dreamit-elementor-extension' ),
 				]
 			);
 			
 				$this->add_control(
 					'icon_color',
 					[
-						'label' => __( 'Color', 'itsoft' ),
+						'label' => __( 'Color', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
@@ -154,7 +205,7 @@ Style Tab
 					\Elementor\Group_Control_Border::get_type(),
 					[
 						'name' => 'border',
-						'label' => __( 'Border', 'itsoft' ),
+						'label' => __( 'Border', 'dreamit-elementor-extension' ),
 						'selector' => '{{WRAPPER}} .icon-box-icon .icon i',
 					]
 				);
@@ -172,14 +223,14 @@ Style Tab
 			$this->start_controls_tab(
 				'style_hover_tab',
 				[
-					'label' => __( 'Hover', 'itsoft' ),
+					'label' => __( 'Hover', 'dreamit-elementor-extension' ),
 				]
 			);
 
 				$this->add_control(
 					'icon_hover_color',
 					[
-						'label' => __( 'Hover Color', 'itsoft' ),
+						'label' => __( 'Hover Color', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
@@ -192,7 +243,7 @@ Style Tab
 					\Elementor\Group_Control_Border::get_type(),
 					[
 						'name' => 'hover_border',
-						'label' => __( 'Hover Border', 'itsoft' ),
+						'label' => __( 'Hover Border', 'dreamit-elementor-extension' ),
 						'selector' => '{{WRAPPER}} .icon-box-icon .icon:hover i',
 					]
 				);
@@ -227,7 +278,7 @@ Style Tab
 		$this->start_controls_section(
 			'title_section',
 			[
-				'label' => __( 'Title', 'itsoft' ),
+				'label' => __( 'Title', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -235,7 +286,7 @@ Style Tab
 			$this->add_control(
 				'title_color',
 				[
-					'label' => __( 'Color', 'itsoft' ),
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -248,7 +299,6 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'title_one_typography',
-					'label' => __( 'Typography', 'itsoft' ),
 					'selector' => '{{WRAPPER}} .icon-box-content h2',
 				]
 			);
@@ -257,7 +307,7 @@ Style Tab
 		$this->start_controls_section(
 			'description_section',
 			[
-				'label' => __( 'Description', 'itsoft' ),
+				'label' => __( 'Description', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -265,7 +315,7 @@ Style Tab
 			$this->add_control(
 				'description_color',
 				[
-					'label' => __( 'Color', 'itsoft' ),
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -278,7 +328,6 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'description_typography',
-					'label' => __( 'Typography', 'itsoft' ),
 					'selector' => '{{WRAPPER}} .icon-box-content p',
 				]
 			);
@@ -291,6 +340,9 @@ Style Tab
 		$settings = $this->get_settings_for_display();
 		
 		?>
+
+		<?php if($settings['select_style']=='one'){ ?>
+
 		<div class="icon-box">
 
 			<div class="icon-box-icon">
@@ -317,6 +369,37 @@ Style Tab
 				</div>
 			</div>
 		</div>
+
+		<?php }elseif($settings['select_style']=='two'){ ?>
+
+		<div class="icon-box style-two">
+
+			<div class="icon-box-icon">
+
+				<?php if($settings['icons_type'] == 'icon' ) : ?>
+				<div class="icon">
+					<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
+				</div>
+
+				<?php else: ?>
+				<div class="img-icon">
+					<img src="<?php echo $settings['select_img']['url'];?>" alt="" />
+				</div>
+				<?php endif; ?>
+
+			</div>
+
+			<div class="icon-box-content">
+				<div class="title">
+					<h2><?php echo $settings['title_text']; ?></h2>
+				</div>
+				<div class="description">
+					<p><?php echo $settings['description_text']; ?></p>
+				</div>
+			</div>
+		</div>
+		<?php } ?>
+
 		<?php
 	}
 }

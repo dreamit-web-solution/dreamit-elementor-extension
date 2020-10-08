@@ -407,7 +407,7 @@ Style Tab
 
 
 
-$icon_tag = 'a';
+		$icon_tag = 'a';
 		if ( ! empty( $settings['link']['url'] ) ) {
 			
 
@@ -455,11 +455,11 @@ $icon_tag = 'a';
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 								<div class="service-btn">
 									<<?php echo implode( ' ', [ $icon_tag, $link_attributes ] ); ?>>
-										<?php echo $settings['button_text']; } ?>
+										<?php echo $settings['button_text']; ?>
 										<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 									</<?php echo $icon_tag; ?>>
 								</div>
-
+							<?php } ?>
 						</div>
 					</div>
 				</div>
@@ -489,10 +489,11 @@ $icon_tag = 'a';
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 							<div class="service-btn">
 								<a href="#">
-									<?php echo $settings['button_text']; } ?>
+									<?php echo $settings['button_text']; ?>
 									<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 								</a>
-							</div><!-- .service-btn	-->							
+							</div><!-- .service-btn	-->
+							<?php } ?>						
 						</div>
 					</div><!-- .service-box .service-style-two -->
 
@@ -536,10 +537,11 @@ $icon_tag = 'a';
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 								<div class="service-btn">
 									<<?php echo implode( ' ', [ $icon_tag, $link_attributes ] ); ?>>
-										<?php echo $settings['button_text']; } ?>
+										<?php echo $settings['button_text']; ?>
 										<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 									</<?php echo $icon_tag; ?>>
 								</div>
+							<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -572,10 +574,11 @@ $icon_tag = 'a';
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 							<div class="service-btn">
 								<a href="#">
-									<?php echo $settings['button_text']; } ?>
+									<?php echo $settings['button_text']; ?>
 									<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 								</a>
 							</div><!-- .service-btn	-->
+							<?php } ?>
 						</div>
 					</div>
 				</div>
