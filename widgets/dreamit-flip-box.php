@@ -119,42 +119,6 @@ class FlipBox extends Widget_Base{
             );
 
             $this->add_control(
-                'front_title_tag',
-                [
-                    'label' => esc_html__( 'Title Tag', 'dreamit-elementor-extension' ),
-                    'type' => Controls_Manager::CHOOSE,
-                    'options' => [
-                        'h1'  => [
-                            'title' => esc_html__( 'H1', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h1'
-                        ],
-                        'h2'  => [
-                            'title' => esc_html__( 'H2', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h2'
-                        ],
-                        'h3'  => [
-                            'title' => esc_html__( 'H3', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h3'
-                        ],
-                        'h4'  => [
-                            'title' => esc_html__( 'H4', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h4'
-                        ],
-                        'h5'  => [
-                            'title' => esc_html__( 'H5', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h5'
-                        ],
-                        'h6'  => [
-                            'title' => esc_html__( 'H6', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h6'
-                        ]
-                    ],
-                    'default' => 'h2',
-                    'toggle' => false,
-                ]
-            );
-
-            $this->add_control(
                 'front_desc',
                 [
                     'label' => __( 'Description', 'dreamit-elementor-extension' ),
@@ -332,55 +296,6 @@ class FlipBox extends Widget_Base{
                     'default' => __('', 'dreamit-elementor-extension' ),
                     'placeholder' => __( 'Enter your title', 'dreamit-elementor-extension' ),
                     'separator' => 'before', 
-                ]
-            );
-
-            $this->add_control(
-                'back_title_tag',
-                [
-                    'label' => esc_html__( 'Title Tag', 'dreamit-elementor-extension' ),
-                    'type' => Controls_Manager::CHOOSE,
-                    'options' => [
-                        'h1'  => [
-                            'title' => esc_html__( 'H1', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h1'
-                        ],
-                        'h2'  => [
-                            'title' => esc_html__( 'H2', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h2'
-                        ],
-                        'h3'  => [
-                            'title' => esc_html__( 'H3', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h3'
-                        ],
-                        'h4'  => [
-                            'title' => esc_html__( 'H4', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h4'
-                        ],
-                        'h5'  => [
-                            'title' => esc_html__( 'H5', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h5'
-                        ],
-                        'h6'  => [
-                            'title' => esc_html__( 'H6', 'dreamit-elementor-extension' ),
-                            'icon' => 'eicon-editor-h6'
-                        ]
-                    ],
-                    'default' => 'h2',
-                    'toggle' => false,
-                ]
-            );
-
-            $this->add_control(
-                'back_title_link',
-                [
-                    'label' => esc_html__( 'Title Link', 'dreamit-elementor-extension' ),
-                    'type' => Controls_Manager::URL,
-                    'label_block' => false,
-                    'placeholder' => esc_html__( 'https://example.com/', 'dreamit-elementor-extension' ),
-                    'dynamic' => [
-                        'active' => true,
-                    ],
                 ]
             );
 
@@ -1100,6 +1015,9 @@ Style Tab
 
         $this->end_controls_section(); 
 
+
+// Back part style
+
         $this->start_controls_section(
             'flip_box_back_style',
             [
@@ -1230,16 +1148,6 @@ Style Tab
                 [
                     'name' => 'back_part_box_shadow',
                     'selector' => '{{WRAPPER}} .back-part',
-                ]
-            );
-
-            $this->add_group_control(
-                \Elementor\Group_Control_Background::get_type(),
-                [
-                    'name' => 'back_part_bg',
-                    'label' => esc_html__( 'Background', 'dreamit-elementor-extension' ),
-                    'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .back-part::before',
                 ]
             );
 
@@ -1776,7 +1684,7 @@ Style Tab
 
                             <?php if(!empty($settings['front_title'])) { ?>
                                 <div class="front-title-part">
-                                    <<?php echo esc_attr($settings['front_title_tag']);?> class="front-title"> <?php echo esc_attr($settings['front_title']);?></<?php echo esc_attr($settings['front_title_tag']);?>>                                
+                                    <h2 class="front-title"><?php echo esc_attr($settings['front_title']);?></h2>                                
                                 </div>
                             <?php } ?>
 
@@ -1817,13 +1725,9 @@ Style Tab
 
                             <?php if(!empty($settings['back_title'])) { ?>
                                 <div class="back-title-part">
-                                    <?php if(!empty($settings['back_title_link']['url'])) : ?>
-                                        <<?php echo esc_attr($settings['back_title_tag']);?> class="back-title"> 
-                                            <a href="<?php echo esc_url($settings['back_title_link']['url']);?>"><?php echo esc_attr($settings['back_title']);?></a>
-                                        </<?php echo esc_attr($settings['back_title_tag']);?>>
-                                    <?php else: ?>
-                                        <<?php echo esc_attr($settings['back_title_tag']);?> class="back-title"> <?php echo esc_attr($settings['back_title']);?></<?php echo esc_attr($settings['back_title_tag']);?>>
-                                    <?php endif; ?>
+                                    
+                                    <h2 class="back-title"><?php echo esc_attr($settings['back_title']);?></h2>
+                                    
                                 </div>
                             <?php } ?>
 

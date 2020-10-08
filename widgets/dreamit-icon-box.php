@@ -272,6 +272,17 @@ Style Tab
 					'separator' => 'before',
 				]
 			);
+			$this->add_responsive_control(
+				'icon_padding',
+				[
+					'label' => __( 'Padding', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .icon-box .icon-box-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -300,6 +311,17 @@ Style Tab
 				[
 					'name' => 'title_one_typography',
 					'selector' => '{{WRAPPER}} .icon-box-content h2',
+				]
+			);
+			$this->add_responsive_control(
+				'title_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .icon-box-content h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
 				]
 			);
 		$this->end_controls_section();

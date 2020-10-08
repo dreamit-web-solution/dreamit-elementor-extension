@@ -32,19 +32,19 @@ class SectionTitle extends Widget_Base{
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => __( 'Content', 'itsoft' ),
+				'label' => __( 'Content', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 			$this->add_control(
 				'text_align',
 					[
-						'label' => __( 'Alignment', 'itsoft' ),
+						'label' => __( 'Alignment', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::SELECT,
 						'options' => [
-							't_left' => __( 'Text Left', 'itsoft' ),
-							't_center' => __( 'Text Center', 'itsoft' ),
-							't_right' => __( 'Text Right', 'itsoft' ),
+							't_left' => __( 'Text Left', 'dreamit-elementor-extension' ),
+							't_center' => __( 'Text Center', 'dreamit-elementor-extension' ),
+							't_right' => __( 'Text Right', 'dreamit-elementor-extension' ),
 						],
 						'default' => 't_left',
 					],
@@ -52,66 +52,66 @@ class SectionTitle extends Widget_Base{
 			$this->add_control(
 				'subtitle',
 				[
-					'label' => __( 'Subtitle', 'itsoft' ),
+					'label' => __( 'Subtitle', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter subtitle', 'itsoft' ),
+					'placeholder' => __( 'Enter subtitle', 'dreamit-elementor-extension' ),
 					'label_block' => true,
-					'default' => __( 'Section subtitle', 'itsoft' ),
+					'default' => __( 'Section subtitle', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'title_one',
 				[
-					'label' => __( 'Title One', 'itsoft' ),
+					'label' => __( 'Title One', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter title one', 'itsoft' ),
+					'placeholder' => __( 'Enter title one', 'dreamit-elementor-extension' ),
 					'label_block' => true,
-					'default' => __( 'Section title one', 'itsoft' ),
+					'default' => __( 'Section title one', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'title_two',
 				[
-					'label' => __( 'Title Two', 'itsoft' ),
+					'label' => __( 'Title Two', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter title two', 'itsoft' ),
+					'placeholder' => __( 'Enter title two', 'dreamit-elementor-extension' ),
 					'label_block' => true,
-					'default' => __( 'Section title two', 'itsoft' ),
+					'default' => __( 'Section title two', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'highlight_text',
 				[
-					'label' => __( 'Highlight Text', 'itsoft' ),
+					'label' => __( 'Highlight Text', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter highlight text', 'itsoft' ),
+					'placeholder' => __( 'Enter highlight text', 'dreamit-elementor-extension' ),
 					'label_block' => true,
-					'default' => __( 'Highlight text', 'itsoft' ),
+					'default' => __( 'Highlight text', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'description',
 				[
-					'label' => __( 'Description', 'itsoft' ),
+					'label' => __( 'Description', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXTAREA,
 					'dynamic' => [
 						'active' => true,
 					],
-					'placeholder' => __( 'Enter description', 'itsoft' ),
+					'placeholder' => __( 'Enter description', 'dreamit-elementor-extension' ),
 					'label_block' => true,
-					'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'itsoft' ),
+					'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'dreamit-elementor-extension' ),
 				]
 			);
 		$this->end_controls_section();
@@ -125,7 +125,7 @@ Style Tab
 		$this->start_controls_section(
 			'style_section',
 			[
-				'label' => __( 'Style', 'itsoft' ),
+				'label' => __( 'Style', 'dreamit-elementor-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -133,11 +133,11 @@ Style Tab
 			$this->add_control(
 				'select_style',
 				[
-					'label' => __( 'Select Style', 'itsoft' ),
+					'label' => __( 'Select Style', 'dreamit-elementor-extension' ),
 					'type' => \Elementor\Controls_Manager::SELECT,
 					'options' => [
-						'one' => __( 'One', 'itsoft' ),
-						'two' => __( 'Two', 'itsoft' ),
+						'one' => __( 'One', 'dreamit-elementor-extension' ),
+						'two' => __( 'Two', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
@@ -148,21 +148,21 @@ Style Tab
 		$this->start_controls_section(
 			'content_section_style',
 			[
-				'label' => __( 'Content', 'itsoft' ),
+				'label' => __( 'Content', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 			$this->add_control(
 				'subtitle_heading',
 				[
-					'label' => __( 'Subtitle', 'itsoft' ),
+					'label' => __( 'Subtitle', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::HEADING,
 				]
 			);
 			$this->add_control(
 				'subtitle_color',
 				[
-					'label' => __( 'Color', 'itsoft' ),
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -175,15 +175,26 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'subtitle_typography',
-					'label' => __( 'Typography', 'itsoft' ),
+					'label' => __( 'Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .section-title h5',
+				]
+			);
+			$this->add_responsive_control(
+				'subtitle_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-title h5' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
 				]
 			);
 			$this->add_control(
 				'title_one_heading',
 				[
-					'label' => __( 'Title One', 'itsoft' ),
+					'label' => __( 'Title One', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -191,7 +202,7 @@ Style Tab
 			$this->add_control(
 				'title_one_color',
 				[
-					'label' => __( 'Color', 'itsoft' ),
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -204,15 +215,26 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'title_one_typography',
-					'label' => __( 'Typography', 'itsoft' ),
+					'label' => __( 'Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .section-title h3',
+				]
+			);
+			$this->add_responsive_control(
+				'title_one_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-title h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
 				]
 			);
 			$this->add_control(
 				'title_two_heading',
 				[
-					'label' => __( 'Title Two', 'itsoft' ),
+					'label' => __( 'Title Two', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -220,7 +242,7 @@ Style Tab
 			$this->add_control(
 				'title_two_color',
 				[
-					'label' => __( 'Title Two Color', 'itsoft' ),
+					'label' => __( 'Title Two Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -233,15 +255,26 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'title_two_typography',
-					'label' => __( 'Typography', 'itsoft' ),
+					'label' => __( 'Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .section-title h2',
+				]
+			);
+			$this->add_responsive_control(
+				'title_two_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-title h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
 				]
 			);
 			$this->add_control(
 				'highlight_text_heading',
 				[
-					'label' => __( 'Highlight Text', 'itsoft' ),
+					'label' => __( 'Highlight Text', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -249,7 +282,7 @@ Style Tab
 			$this->add_control(
 				'highlight_text_color',
 				[
-					'label' => __( 'Highlight Text Color', 'itsoft' ),
+					'label' => __( 'Highlight Text Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -261,7 +294,7 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'highlight_text_typography',
-					'label' => __( 'Typography', 'itsoft' ),
+					'label' => __( 'Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .section-title span',
 				]
@@ -269,7 +302,7 @@ Style Tab
 			$this->add_control(
 				'underline_heading',
 				[
-					'label' => __( 'Underline', 'itsoft' ),
+					'label' => __( 'Underline', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -277,7 +310,7 @@ Style Tab
 			$this->add_control(
 				'underline_color',
 				[
-					'label' => __( 'Color', 'itsoft' ),
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -288,16 +321,13 @@ Style Tab
 			$this->add_responsive_control(
 				'underline_bottom_space',
 				[
-					'label' => __( 'Spacing', 'itsoft' ),
+					'label' => __( 'Spacing', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'min' => 0,
 							'max' => 100,
 						],
-					],
-					'default' => [
-						'size' => 30,
 					],
 					'selectors' => [
 						'{{WRAPPER}} .bar-main' => 'margin-bottom: {{SIZE}}{{UNIT}};',
@@ -307,7 +337,7 @@ Style Tab
 			$this->add_control(
 				'description_heading',
 				[
-					'label' => __( 'Description', 'itsoft' ),
+					'label' => __( 'Description', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
@@ -315,7 +345,7 @@ Style Tab
 			$this->add_control(
 				'description_color',
 				[
-					'label' => __( 'Color', 'itsoft' ),
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -328,9 +358,20 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'description_typography',
-					'label' => __( 'Typography', 'itsoft' ),
+					'label' => __( 'Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .section-title p',
+				]
+			);
+			$this->add_responsive_control(
+				'description_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .section-title p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
 				]
 			);
 		$this->end_controls_section();

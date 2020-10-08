@@ -18,7 +18,7 @@ class PostTab extends Widget_Base{
 	}
 	
 	public function get_icon(){
-		return "eicon-icon-box";
+		return "eicon-tabs";
 	}
 
 	public function get_categories(){
