@@ -4,6 +4,7 @@
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Background;
 
 if(!defined('ABSPATH')) exit;
 
@@ -489,6 +490,7 @@ Style Tab
                     'selector' => '{{WRAPPER}} .flip-box .flip-box-inner .front-part',
                 ]
             );
+            
 
             $this->add_responsive_control(
                 'flip_box_front_align',
@@ -824,8 +826,7 @@ Style Tab
                 [
                     'name' => 'front_part_title_typography',
                     'label' => esc_html__( 'Typography', 'dreamit-elementor-extension' ),
-                    'selector' => '{{WRAPPER}} .front-title-part .front-title',
-                    'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_3,
+                    'selector' => '{{WRAPPER}} .front-part .front-content-part .front-title-part .front-title',
                 ]
             );
 
@@ -1033,6 +1034,15 @@ Style Tab
                     'label' => __( 'Background', 'dreamit-elementor-extension' ),
                     'types' => [ 'classic', 'gradient', 'video' ],
                     'selector' => '{{WRAPPER}} .flip-box .flip-box-inner .back-part',
+                ]
+            );
+            $this->add_group_control(
+                \Elementor\Group_Control_Background::get_type(),
+                [
+                    'name' => 'back_background_overlay',
+                    'label' => __( 'Background Overlay', 'dreamit-elementor-extension' ),
+                    'types' => [ 'classic', 'gradient', 'video' ],
+                    'selector' => '{{WRAPPER}} .flip-box .flip-box-inner .back-part .back-background-overlay',
                 ]
             );
 
@@ -1709,6 +1719,7 @@ Style Tab
                     </div><!-- .front-part -->
 
                     <div class="back-part">
+                        <div class="back-background-overlay">
                         <div class="back-content-part">
                             <?php if( !empty($settings['back_icon']) || !empty($settings['back_image']['url'])){?>
                                 <div class="back-icon-part">
@@ -1747,6 +1758,7 @@ Style Tab
                                     </a>
                                 </div>
                             <?php endif; ?>
+                        </div>
                         </div>
                     </div><!-- .back-part -->
                 </div><!-- .flip-box-wrap -->

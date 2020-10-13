@@ -251,7 +251,7 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-flip-box.php');
 		require_once( __DIR__ . '/widgets/dreamit-feature-box.php');
 		require_once( __DIR__ . '/widgets/dreamit-slick-slider.php');
-		// require_once( __DIR__ . '/widgets/team/dreamit-team.php');
+		require_once( __DIR__ . '/widgets/team/dreamit-team.php');
 		require_once( __DIR__ . '/widgets/dreamit-work-process.php');
 		require_once( __DIR__ . '/widgets/dreamit-call-to-action.php');
 		require_once( __DIR__ . '/widgets/dreamit-testimonial.php');
@@ -264,6 +264,8 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-video-box.php' );
 		require_once( __DIR__ . '/widgets/dreamit-nivo-slider.php' );
 		require_once( __DIR__ . '/widgets/dreamit-post-tab.php' );
+		require_once( __DIR__ . '/widgets/dreamit-flip-box2.php');
+		require_once( __DIR__ . '/widgets/dreamit-pricing-table.php');
 
 		// Register widget
 
@@ -272,7 +274,7 @@ final class DreamIT_Elementor_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new FlipBox());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new FeatureBox());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new SlickSlider());
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Team());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Team());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new WorkProcess());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new CallToAction());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Testimonial());
@@ -285,6 +287,8 @@ final class DreamIT_Elementor_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new VideoBox() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new NivoSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PostTab() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new FlipBox2());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PricingTable());
 		
 		add_action( 'elementor/elements/categories_registered', [$this, 'add_category'] );
 

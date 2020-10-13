@@ -1,6 +1,6 @@
 <?php
 
-namespace WPC\Widgets;
+
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -26,11 +26,11 @@ class Team extends Widget_Base{
 	}
 	
 	public function get_icon(){
-		return "eicon-slider-push";
+		return "eicon-person";
 	}
 
 	public function get_categories(){
-		return ['my_category'];
+		return ['dreamit-category'];
 	}
 
 	protected function _register_controls() {
