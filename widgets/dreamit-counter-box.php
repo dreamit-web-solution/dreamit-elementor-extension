@@ -130,11 +130,34 @@ Style Tab
 					]
 				);
 
-				$this->add_group_control(
-					Group_Control_Typography::get_type(),
+				$this->add_control(
+					'icon_background_color',
 					[
-						'name' => 'typography_icon',
+						'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .counter_icon i' => 'background: {{VALUE}}',
+						],
+					]
+				);
+				$this->add_group_control(
+					\Elementor\Group_Control_Border::get_type(),
+					[
+						'name' => 'icon_border',
+						'label' => __( 'Border', 'dreamit-elementor-extension' ),
 						'selector' => '{{WRAPPER}} .counter_icon i',
+					]
+				);
+				$this->add_responsive_control(
+					'icon_border_radius',
+					[
+						'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+						'type' => \Elementor\Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', 'em', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .counter_icon i' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
 					]
 				);
 			
@@ -157,12 +180,34 @@ Style Tab
 						],
 					]
 				);
-
-				$this->add_group_control(
-					Group_Control_Typography::get_type(),
+				$this->add_control(
+					'hover_icon_background_color',
 					[
-						'name' => 'icon_hover_typography',
+						'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .single_counter:hover .counter_icon i' => 'background: {{VALUE}}',
+						],
+					]
+				);
+				$this->add_group_control(
+					\Elementor\Group_Control_Border::get_type(),
+					[
+						'name' => 'hover_border',
+						'label' => __( 'Hover Border', 'dreamit-elementor-extension' ),
 						'selector' => '{{WRAPPER}} .single_counter:hover .counter_icon i',
+					]
+				);
+				$this->add_responsive_control(
+					'hover_icon_border_radius',
+					[
+						'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+						'type' => \Elementor\Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', 'em', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .single_counter:hover .counter_icon i' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
 					]
 				);
 			
@@ -182,7 +227,57 @@ Style Tab
 						'separator' => 'before',
 					]
 				);
-
+			$this->add_control(
+				'height',
+				[
+					'label' => __( 'Height', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .counter_icon i' => 'height: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_control(
+				'width',
+				[
+					'label' => __( 'Width', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .counter_icon i' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'typography_icon',
+					'selector' => '{{WRAPPER}} .counter_icon i',
+				]
+			);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -241,36 +336,6 @@ Style Tab
 				]
 			);
 
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'box_section',
-			[
-				'label' => __( 'Box', 'dreamit-elementor-extension' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-            $this->add_group_control(
-                \Elementor\Group_Control_Background::get_type(),
-                [
-                    'name' => 'background',
-                    'label' => __( 'Background', 'dreamit-elementor-extension' ),
-                    'types' => [ 'classic', 'gradient', 'video' ],
-                    'selector' => '{{WRAPPER}} .single_counter',
-                ]
-            );
-			$this->add_responsive_control(
-				'padding',
-				[
-					'label' => __( 'Padding', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em', '%' ],
-					'selectors' => [
-						'{{WRAPPER}} .single_counter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
 		$this->end_controls_section();
 	}
 

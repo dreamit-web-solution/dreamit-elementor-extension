@@ -193,7 +193,7 @@ Style Tab
 				$this->add_control(
 					'icon_color',
 					[
-						'label' => __( 'Color', 'dreamit-elementor-extension' ),
+						'label' => __( 'Icon Color', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
@@ -201,23 +201,36 @@ Style Tab
 						],
 					]
 				);
+				$this->add_control(
+					'icon_background_color',
+					[
+						'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .icon-box-icon .icon i' => 'background: {{VALUE}}',
+						],
+					]
+				);
 				$this->add_group_control(
 					\Elementor\Group_Control_Border::get_type(),
 					[
-						'name' => 'border',
+						'name' => 'icon_border',
 						'label' => __( 'Border', 'dreamit-elementor-extension' ),
 						'selector' => '{{WRAPPER}} .icon-box-icon .icon i',
 					]
 				);
-
-				$this->add_group_control(
-					Group_Control_Typography::get_type(),
+				$this->add_responsive_control(
+					'icon_border_radius',
 					[
-						'name' => 'icon_typography',
-						'selector' => '{{WRAPPER}} .icon-box-icon .icon i',
+						'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+						'type' => \Elementor\Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', 'em', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .icon-box-icon .icon i' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
 					]
 				);
-			
 			$this->end_controls_tab();
 			
 			$this->start_controls_tab(
@@ -234,28 +247,40 @@ Style Tab
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
-							'{{WRAPPER}} .icon-box-icon .icon:hover i' => 'color: {{VALUE}}',
+							'{{WRAPPER}} .icon-box:hover .icon-box-icon .icon i' => 'color: {{VALUE}}',
 						],
 					]
 				);
-
+				$this->add_control(
+					'hover_icon_background_color',
+					[
+						'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .icon-box:hover .icon-box-icon .icon i' => 'background: {{VALUE}}',
+						],
+					]
+				);
 				$this->add_group_control(
 					\Elementor\Group_Control_Border::get_type(),
 					[
 						'name' => 'hover_border',
 						'label' => __( 'Hover Border', 'dreamit-elementor-extension' ),
-						'selector' => '{{WRAPPER}} .icon-box-icon .icon:hover i',
-					]
-				);
-
-				$this->add_group_control(
-					Group_Control_Typography::get_type(),
-					[
-						'name' => 'icon_hover_typography',
 						'selector' => '{{WRAPPER}} .icon-box:hover .icon-box-icon .icon i',
 					]
 				);
-			
+				$this->add_responsive_control(
+					'hover_icon_border_radius',
+					[
+						'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+						'type' => \Elementor\Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px', 'em', '%' ],
+						'selectors' => [
+							'{{WRAPPER}} .icon-box:hover .icon-box-icon .icon i' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						],
+					]
+				);
 			$this->end_controls_tab();
 			
 		$this->end_controls_tabs();
@@ -272,18 +297,57 @@ Style Tab
 					'separator' => 'before',
 				]
 			);
-			$this->add_responsive_control(
-				'icon_padding',
+			$this->add_control(
+				'height',
 				[
-					'label' => __( 'Padding', 'dreamit-elementor-extension' ),
-					'type' => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em', '%' ],
+					'label' => __( 'Height', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
 					'selectors' => [
-						'{{WRAPPER}} .icon-box .icon-box-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .icon-box-icon .icon i' => 'height: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
-
+			$this->add_control(
+				'width',
+				[
+					'label' => __( 'Width', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .icon-box-icon .icon i' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'icon_typography',
+					'selector' => '{{WRAPPER}} .icon-box-icon .icon i',
+				]
+			);
 		$this->end_controls_section();
 
 		$this->start_controls_section(

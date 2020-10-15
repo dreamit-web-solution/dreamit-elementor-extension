@@ -4,7 +4,6 @@
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Scheme_Color;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Utils;
@@ -51,7 +50,7 @@ class Team extends Widget_Base{
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Content', 'itsoft' ),
+				'label' => esc_html__( 'Content', 'rsaddon' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -59,12 +58,12 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'team_grid_source',
 			[
-				'label'   => __( 'Select Team Type', 'itsoft' ),
+				'label'   => __( 'Select Team Type', 'rsaddon' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'custom',				
 				'options' => [
-					'custom' => esc_html__('Custom', 'itsoft'),
-					'dynamic' => esc_html__('Dynamic', 'itsoft')					
+					'custom' => esc_html__('Custom', 'rsaddon'),
+					'dynamic' => esc_html__('Dynamic', 'rsaddon')					
 				],											
 			]
 		);
@@ -77,12 +76,12 @@ class Team extends Widget_Base{
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'style1',				
 				'options' => [
-					'style1' => esc_html__('Style 1', 'itsoft'),
-					'style2' => esc_html__('Style 2', 'itsoft'),
-					'style3' => esc_html__('Style 3', 'itsoft'),
-					'style4' => esc_html__('Style 4', 'itsoft'),
-					'style5' => esc_html__('Style 5', 'itsoft'),
-					'style6' => esc_html__('Style 6', 'itsoft'),
+					'style1' => esc_html__('Style 1', 'rsaddon'),
+					'style2' => esc_html__('Style 2', 'rsaddon'),
+					'style3' => esc_html__('Style 3', 'rsaddon'),
+					'style4' => esc_html__('Style 4', 'rsaddon'),
+					'style5' => esc_html__('Style 5', 'rsaddon'),
+					'style6' => esc_html__('Style 6', 'rsaddon'),
 				],
 				'separator' => 'before',										
 			]
@@ -92,7 +91,7 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'team_category',
 			[
-				'label'   => esc_html__( 'Category', 'itsoft' ),
+				'label'   => esc_html__( 'Category', 'rsaddon' ),
 				'type'    => Controls_Manager::SELECT2,	
 				'default' => 0,			
 				'options' => [		
@@ -112,9 +111,9 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'per_page',
 			[
-				'label' => esc_html__( 'Team Show Per Page', 'itsoft' ),
+				'label' => esc_html__( 'Team Show Per Page', 'rsaddon' ),
 				'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'example 3', 'itsoft' ),
+				'placeholder' => esc_html__( 'example 3', 'rsaddon' ),
 				'separator' => 'before',
 				'condition' => [
 					'team_grid_source' => 'dynamic',
@@ -125,15 +124,15 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'team_columns',
 			[
-				'label'   => esc_html__( 'Columns', 'itsoft' ),
+				'label'   => esc_html__( 'Columns', 'rsaddon' ),
 				'type'    => Controls_Manager::SELECT,	
 				'default' => 4,			
 				'options' => [
-					'6' => esc_html__( '2 Column', 'itsoft' ),
-					'4' => esc_html__( '3 Column', 'itsoft' ),
-					'3' => esc_html__( '4 Column', 'itsoft' ),
-					'2' => esc_html__( '6 Column', 'itsoft' ),
-					'12' => esc_html__( '1 Column', 'itsoft' ),					
+					'6' => esc_html__( '2 Column', 'rsaddon' ),
+					'4' => esc_html__( '3 Column', 'rsaddon' ),
+					'3' => esc_html__( '4 Column', 'rsaddon' ),
+					'2' => esc_html__( '6 Column', 'rsaddon' ),
+					'12' => esc_html__( '1 Column', 'rsaddon' ),					
 				],
 				'separator' => 'before',
 				'condition' => [
@@ -146,7 +145,7 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'memeber_image',
 			[
-				'label' => esc_html__( 'Member Image', 'itsoft' ),
+				'label' => esc_html__( 'Member Image', 'rsaddon' ),
 				'type'  => Controls_Manager::MEDIA,
 				
                 'default' => [
@@ -179,10 +178,10 @@ class Team extends Widget_Base{
           $this->add_control(
             'title',
             [
-                'label' => esc_html__( 'Name', 'itsoft' ),                
+                'label' => esc_html__( 'Name', 'rsaddon' ),                
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Elements Name',
-                'placeholder' => esc_html__( 'Type Member Name', 'itsoft' ),
+                'placeholder' => esc_html__( 'Type Member Name', 'rsaddon' ),
                 'separator' => 'before',
                 'condition' => [
 					'team_grid_source' => 'custom',
@@ -194,11 +193,11 @@ class Team extends Widget_Base{
         $this->add_control(
             'designation',
             [
-                'label' => __( 'Designation', 'itsoft' ),               
+                'label' => __( 'Designation', 'rsaddon' ),               
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Web Developer', 'itsoft' ),
+                'default' => __( 'Web Developer', 'rsaddon' ),
                 'separator' => 'before',
-                'placeholder' => __( 'Type Member Designation', 'itsoft' ),
+                'placeholder' => __( 'Type Member Designation', 'rsaddon' ),
                 'condition' => [
 					'team_grid_source' => 'custom',
 				],
@@ -207,7 +206,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'phone',
             [
-                'label' => __( 'Phone', 'itsoft' ),               
+                'label' => __( 'Phone', 'rsaddon' ),               
                 'type' => Controls_Manager::TEXT,                
                 'separator' => 'before',                
                 'condition' => [
@@ -218,9 +217,9 @@ class Team extends Widget_Base{
         $this->add_control(
             'email',
             [
-                'label' => __( 'Email Address', 'itsoft' ),                
+                'label' => __( 'Email Address', 'rsaddon' ),                
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter Email Address', 'itsoft' ),
+                'placeholder' => __( 'Enter Email Address', 'rsaddon' ),
                 'separator' => 'before',               
                 'condition' => [
 					'team_grid_source' => 'custom',
@@ -231,9 +230,9 @@ class Team extends Widget_Base{
         $this->add_control(
             'bio',
             [
-                'label' => __( 'Short Bio', 'itsoft' ),                
+                'label' => __( 'Short Bio', 'rsaddon' ),                
                 'type' => Controls_Manager::TEXTAREA,
-                'placeholder' => __( '', 'itsoft' ),
+                'placeholder' => __( '', 'rsaddon' ),
                 'rows' => 5,
                 'separator' => 'before',
                 'condition' => [
@@ -245,10 +244,10 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_description',
             [
-                'label' => __( 'Description', 'itsoft' ),                
+                'label' => __( 'Description', 'rsaddon' ),                
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here.',
-                'placeholder' => __( '', 'itsoft' ),
+                'placeholder' => __( '', 'rsaddon' ),
                 'rows' => 10,
                 'separator' => 'before',
                 'condition' => [
@@ -261,7 +260,7 @@ class Team extends Widget_Base{
         $this->add_control(
 			'team_grid_popup',
 			[
-				'label'   => esc_html__( 'Show Popup', 'itsoft' ),
+				'label'   => esc_html__( 'Show Popup', 'rsaddon' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'popup',				
 				'options' => [
@@ -281,7 +280,7 @@ class Team extends Widget_Base{
         $this->start_controls_section(
             '_section_social',
             [
-                'label' => __( 'Social Profiles', 'itsoft' ),
+                'label' => __( 'Social Profiles', 'rsaddon' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
                 'condition' => [
 					'team_grid_source' => 'custom',
@@ -298,55 +297,19 @@ class Team extends Widget_Base{
  		        'label' => esc_html__('Enter Link', 'rsaddon'),
  		        'type' => Controls_Manager::URL,                
  		    ]
- 		); 
+ 		);
+
 
  		$repeater->add_control(
  		    'social_profile',
  		    [
  		        'label' => esc_html__('Select Social Profile Name', 'rsaddon'),
- 		        'type' => Controls_Manager::SELECT, 		       
+ 		        'type' => Controls_Manager::ICON, 		       
  		        'label_block' => true,
- 		        'options' => [
-					'fa fa-500px'          => esc_html__( '500px', 'rsaddon' ),
-					'fa fa-apple'          => esc_html__( 'Apple', 'rsaddon' ),
-					'fa fa-behance'        => esc_html__( 'Behance', 'rsaddon' ),		          
-					'fa fa-codepen'        => esc_html__( 'CodePen', 'rsaddon' ),				
-					'fa fa-digg'           => esc_html__( 'Digg', 'rsaddon' ),
-					'fa fa-dribbble'       => esc_html__( 'Dribbble', 'rsaddon' ),		           
-					'fa fa-facebook'       => esc_html__( 'Facebook', 'rsaddon' ),
-					'fa fa-flickr'         => esc_html__( 'Flicker', 'rsaddon' ),
-					'fa fa-foursquare'     => esc_html__( 'FourSquare', 'rsaddon' ),
-					'fa fa-github'         => esc_html__( 'Github', 'rsaddon' ),
-					'fa fa-houzz'          => esc_html__( 'Houzz', 'rsaddon' ),
-					'fa fa-instagram'      => esc_html__( 'Instagram', 'rsaddon' ),
-					'fa fa-jsfiddle'       => esc_html__( 'JS Fiddle', 'rsaddon' ),
-					'fa fa-linkedin'       => esc_html__( 'LinkedIn', 'rsaddon' ),
-					'fa fa-medium'         => esc_html__( 'Medium', 'rsaddon' ),
-					'fa fa-pinterest'      => esc_html__( 'Pinterest', 'rsaddon' ),
-					'fa fa-product-hunt'   => esc_html__( 'Product Hunt', 'rsaddon' ),
-					'fa fa-reddit'         => esc_html__( 'Reddit', 'rsaddon' ),
-					'fa fa-slideshare'     => esc_html__( 'Slide Share', 'rsaddon' ),
-					'fa fa-snapchat'       => esc_html__( 'Snapchat', 'rsaddon' ),
-					'fa fa-soundcloud'     => esc_html__( 'SoundCloud', 'rsaddon' ),
-					'fa fa-spotify'        => esc_html__( 'Spotify', 'rsaddon' ),
-					'fa fa-stack-overflow' => esc_html__( 'StackOverflow', 'rsaddon' ),
-					'fa fa-tripadvisor'    => esc_html__( 'TripAdvisor', 'rsaddon' ),
-					'fa fa-tumblr'         => esc_html__( 'Tumblr', 'rsaddon' ),
-					'fa fa-twitch'         => esc_html__( 'Twitch', 'rsaddon' ),
-					'fa fa-twitter'        => esc_html__( 'Twitter', 'rsaddon' ),
-					'fa fa-vimeo'          => esc_html__( 'Vimeo', 'rsaddon' ),
-					'fa fa-vk'             => esc_html__( 'VK', 'rsaddon' ),
-					'fa fa-website'        => esc_html__( 'Website', 'rsaddon' ),
-					'fa fa-whatsapp'       => esc_html__( 'WhatsApp', 'rsaddon' ),
-					'fa fa-wordpress'      => esc_html__( 'WordPress', 'rsaddon' ),
-					'fa fa-xing'           => esc_html__( 'Xing', 'rsaddon' ),
-					'fa fa-yelp'           => esc_html__( 'Yelp', 'rsaddon' ),
-					'fa fa-youtube'        => esc_html__( 'YouTube', 'rsaddon' ),					
-				],
  		        'separator'   => 'before',
  		    ]
  		);
- 		
+
 
  		$this->add_control(
  		    'social_icon_list',
@@ -817,27 +780,27 @@ class Team extends Widget_Base{
 		if($settings['team_grid_source'] == 'dynamic'){
 
 			if('style1' == $settings['team_grid_style']){
-				require_once(__DIR__ . '/widgets/team/style1.php');
+			require_once plugin_dir_path(__FILE__)."/style1.php";
 			}
 
 			if('style2' == $settings['team_grid_style']){
-				require_once(__DIR__ . '/widgets/team/style2.php');
+				require_once plugin_dir_path(__FILE__)."/style2.php";
 			}
 
 			if('style3' == $settings['team_grid_style']){
-				require_once(__DIR__ . '/widgets/team/style3.php');
+				require_once plugin_dir_path(__FILE__)."/style3.php";
 			}
 
 			if('style4' == $settings['team_grid_style']){
-				require_once(__DIR__ . '/widgets/team/style4.php');
+				require_once plugin_dir_path(__FILE__)."/style4.php";
 			}
 
 			if('style5' == $settings['team_grid_style']){
-				require_once(__DIR__ . '/widgets/team/style5.php');
+				require_once plugin_dir_path(__FILE__)."/style5.php";
 			}	
 
 			if('style6' == $settings['team_grid_style']){
-				require_once(__DIR__ . '/widgets/team/style6.php');
+				require_once plugin_dir_path(__FILE__)."/style6.php";
 			}		
 		}else{ ?>
 
@@ -855,7 +818,7 @@ class Team extends Widget_Base{
 			                    <?php endif; ?>
 							</a>
 
-							<?php if('style1' == $settings['team_grid_style']){ ?>
+							<?php if('style1' == $settings['team_grid_style'] || 'style5' == $settings['team_grid_style']){ ?>
 							<div class="social-icons1">
 								<?php foreach ( $settings['social_icon_list'] as $index => $item ) :
 
@@ -863,7 +826,7 @@ class Team extends Widget_Base{
 				            		$link         = !empty($item['link']['URL']) ? $item['link']['URL'] : ''; ?>
 				            								
 										<a href="<?php echo esc_url($link);?>"  <?php echo wp_kses_post($target);?> class="social-icon">
-											<i class="<?php echo esc_html($item['social_profile']); ?>"></i>
+											<i class="<?php echo esc_attr($item['social_profile']); ?>"></i>
 										</a>			
 							        
 							   <?php  endforeach; ?>   
@@ -902,82 +865,6 @@ class Team extends Widget_Base{
 						</div>
 			  		</div>
 			  	</div>
-
-  				<!-- Hidden PupupBox Text -->
-				<div id="rs_popupBox_<?php echo esc_attr($unique);?>" class="rspopup_style1 mfp-with-anim mfp-hide" <?php echo wp_kses_post($popup_background);?>>
-					<div class="row">
-						<div class="col-md-5">
-							<div class="rsteam_img">
-								<?php if ( $settings['memeber_image']['url'] ) : ?>
-			                       <img src="<?php echo esc_url($settings['memeber_image']['url']);?>"  alt="<?php echo esc_url($settings['memeber_image']['url']);?>" />
-			                    <?php endif; ?>	
-					  		</div>
-						</div>
-						<div class="col-md-7">
-							<div class="rsteam_content">
-								<div class="team-content">
-									<div class="team-heading">
-
-									  	<?php if($settings['title']) : ?>
-								  		<h3 class="team-name"><a class="pointer-events" href="#rs_popupBox_<?php echo esc_attr($x);?>" data-effect="mfp-zoom-in"><?php echo esc_html($settings['title']);?></a></h3>
-								  		<?php endif; ?>
-								  		<?php if($settings['designation']) : ?>
-								  			<span class="team-title"><?php echo esc_html($settings['designation']);?></span>
-								  		<?php endif; ?>	
-									</div> 
-
-									
-									<?php if($settings['popup_description']) : ?>
-									<div class="team-des" <?php echo wp_kses_post($popup_content_color);?>>
-										<?php echo esc_html($settings['popup_description']);?>
-									</div>
-									<?php endif; ?>
-
-
-									<?php if($settings['phone'] || $settings['email'])   : ?>
-									<div class="contact-info">
-
-										<ul>
-											<?php if($settings['phone']): ?>
-												<li <?php echo wp_kses_post($popup_phn_email_color);?>>
-													<span><?php echo esc_html('Phone:', 'rsaddon');?> </span>
-													<?php echo esc_html($settings['phone']);?>
-												</li>
-
-											<?php endif; ?>
-
-
-
-											<?php if($settings['email']): ?>
-												<li <?php echo wp_kses_post($popup_phn_email_color);?>>
-													<span><?php echo esc_html('Email:', 'rsaddon');?> </span>
-													<a href="<?php echo esc_html($show_email); ?>"<?php echo wp_kses_post($popup_phn_email_color);?>>
-														<?php echo esc_html($settings['email']);?></a>
-												</li>
-											<?php endif; ?>
-										</ul>
-									</div>
-									<?php endif; ?>
-
-								  	<div class="rs-social-icons">
-										<div class="social-icons1">	
-										<?php foreach ( $settings['social_icon_list'] as $index => $item ) :
-
-											$target       = !empty($item['link']['is_external']) ? 'target=_blank' : '';                    
-						            		$link         = !empty($item['link']['URL']) ? $item['link']['URL'] : ''; ?>
-						            								
-												<a href="<?php echo esc_url($link);?>"  <?php echo wp_kses_post($target);?> class="social-icon">
-													<i class="<?php echo esc_html($item['social_profile']); ?>"></i>
-												</a>			
-									        
-									   <?php  endforeach; ?>   
-								   </div>
-								  	</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
 			</div>
 		<?php 

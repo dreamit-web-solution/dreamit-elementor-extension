@@ -4,6 +4,7 @@
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Typography;
 
 if(!defined('ABSPATH')) exit;
 
@@ -31,21 +32,21 @@ class ServiceBox extends Widget_Base{
 			'icon_section',
 			[
 				'label' => __( 'Icon', 'dreamit-elementor-extension' ),
-				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 			$this->add_control(
 				'icons_type',
 				[
-				    'label' => esc_html__('Icon Type','itsoft'),
+				    'label' => esc_html__('Icon Type','dreamit-elementor-extension'),
 				    'type' => Controls_Manager::CHOOSE,
 				    'options' =>[
 					  'img' =>[
-						'title' =>esc_html__('Image','itsoft'),
+						'title' =>esc_html__('Image','dreamit-elementor-extension'),
 						'icon' =>'fa fa-picture-o',
 					  ],
 					  'icon' =>[
-						'title' =>esc_html__('Icon','itsoft'),
+						'title' =>esc_html__('Icon','dreamit-elementor-extension'),
 						'icon' =>'fa fa-info',
 					  ]
 				    ],
@@ -55,7 +56,7 @@ class ServiceBox extends Widget_Base{
 			 $this->add_control(
 				'select_icon',
 				[
-					'label' => esc_html__( 'Icon', 'itsoft' ),
+					'label' => esc_html__( 'Icon', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::ICON,
 					'condition'=>[
 						'icons_type'=> 'icon',
@@ -66,7 +67,7 @@ class ServiceBox extends Widget_Base{
 			$this->add_control(
 				'select_img',
 				[
-				    'label' => esc_html__('Image','itsoft'),
+				    'label' => esc_html__('Image','dreamit-elementor-extension'),
 				    'type'=>Controls_Manager::MEDIA,
 				    'default' => [
 					  'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -81,7 +82,7 @@ class ServiceBox extends Widget_Base{
 		$this->start_controls_section(
 			'service_section',
 			[
-				'label' => __( 'Service Content', 'dreamit-elementor-extension' ),
+				'label' => __( 'Title & Description', 'dreamit-elementor-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -110,18 +111,6 @@ class ServiceBox extends Widget_Base{
 					'default' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'dreamit-elementor-extension' ),
 				]
 			);
-			$this->add_control(
-				'link',
-				[
-					'label' => __( 'Link', 'dreamit-elementor-extension' ),
-					'type' => Controls_Manager::URL,
-					'dynamic' => [
-						'active' => true,
-					],
-					'placeholder' => __( 'https://your-link.com', 'dreamit-elementor-extension' ),
-					'separator' => 'before',
-				]
-			);
 
 		$this->end_controls_section();
 
@@ -143,6 +132,17 @@ class ServiceBox extends Widget_Base{
 					'placeholder' => __( 'Enter your button text', 'dreamit-elementor-extension' ),
 					'label_block' => true,
 					'default' => __( 'Button', 'dreamit-elementor-extension' ),
+				]
+			);
+			$this->add_control(
+				'link',
+				[
+					'label' => __( 'Link', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::URL,
+					'dynamic' => [
+						'active' => true,
+					],
+					'placeholder' => __( 'https://your-link.com', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
@@ -198,96 +198,6 @@ Style Tab
 					
 				]
 			);
-            $this->add_group_control(
-                \Elementor\Group_Control_Background::get_type(),
-                [
-                    'name' => 'background',
-                    'label' => __( 'Background', 'dreamit-elementor-extension' ),
-                    'types' => [ 'classic', 'gradient', 'video' ],
-                    'selector' => '{{WRAPPER}} .service-box',
-                ]
-            );
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'icon_section_style',
-			[
-				'label' => __( 'Icon', 'dreamit-elementor-extension' ),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->start_controls_tabs(
-			'style_tabs'
-		);
-		$this->start_controls_tab(
-			'style_normal_tab',
-			[
-				'label' => __( 'Normal', 'dreamit-elementor-extension' ),
-			]
-		);
-			$this->add_control(
-				'primary_color',
-				[
-					'label' => __( 'Primary Color', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .service-box .service-box-icon i' => 'color: {{VALUE}}',
-					],
-				]
-			);
-			$this->add_control(
-				'background_color',
-				[
-					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .service-box .service-box-icon i' => 'background-color: {{VALUE}};',
-					],
-				]
-			);
-		$this->end_controls_tab();
-		$this->start_controls_tab(
-			'style_hover_tab',
-			[
-				'label' => __( 'Hover', 'dreamit-elementor-extension' ),
-			]
-		);
-			$this->add_control(
-				'hover_primary_color',
-				[
-					'label' => __( 'Primary Color', 'dreamit-elementor-extension' ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'color: {{VALUE}}',
-					],
-				]
-			);
-			$this->add_control(
-				'hover_background_color',
-				[
-					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'background-color: {{VALUE}};',
-					],
-				]
-			);
-		$this->end_controls_tab();
-		$this->end_controls_tabs();
-
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'content_section_style',
-			[
-				'label' => __( 'Content', 'dreamit-elementor-extension' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
 			$this->add_responsive_control(
 				'text_align',
 				[
@@ -316,30 +226,191 @@ Style Tab
 					],
 				]
 			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'icon_section_style',
+			[
+				'label' => __( 'Icon', 'dreamit-elementor-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+		$this->start_controls_tab(
+			'style_normal_tab',
+			[
+				'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+			]
+		);
 			$this->add_control(
-				'heading_title',
+				'icon_color',
 				[
-					'label' => __( 'Title', 'dreamit-elementor-extension' ),
-					'type' => Controls_Manager::HEADING,
-					'separator' => 'before',
+					'label' => __( 'Icon Color', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-icon i' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_control(
+				'icon_background_color',
+				[
+					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-icon i' => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+			$this->add_group_control(
+				\Elementor\Group_Control_Border::get_type(),
+				[
+					'name' => 'icon_border',
+					'label' => __( 'Border', 'dreamit-elementor-extension' ),
+					'selector' => '{{WRAPPER}} .service-box .service-box-icon i',
 				]
 			);
 			$this->add_responsive_control(
-				'title_bottom_space',
+				'icon_border_radius',
 				[
-					'label' => __( 'Spacing', 'dreamit-elementor-extension' ),
+					'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-icon i' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+		$this->end_controls_tab();
+		$this->start_controls_tab(
+			'style_hover_tab',
+			[
+				'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+			]
+		);
+			$this->add_control(
+				'hover_icon_color',
+				[
+					'label' => __( 'Icon Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			$this->add_control(
+				'hover_background_color',
+				[
+					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'background-color: {{VALUE}};',
+					],
+				]
+			);
+			$this->add_group_control(
+				\Elementor\Group_Control_Border::get_type(),
+				[
+					'name' => 'hover_icon_border',
+					'label' => __( 'Border', 'dreamit-elementor-extension' ),
+					'selector' => '{{WRAPPER}} .service-box:hover .service-box-icon i',
+				]
+			);
+			$this->add_responsive_control(
+				'hover_icon_border_radius',
+				[
+					'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+		$this->end_controls_tab();
+		$this->end_controls_tabs();
+
+			$this->add_responsive_control(
+				'icon_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-icon i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'separator' => 'before',
+				]
+			);
+			$this->add_control(
+				'height',
+				[
+					'label' => __( 'Height', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
 					'range' => [
 						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
 							'min' => 0,
 							'max' => 100,
 						],
 					],
 					'selectors' => [
-						'{{WRAPPER}} .service-box .service-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .service-box .service-box-icon i' => 'height: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
+			$this->add_control(
+				'width',
+				[
+					'label' => __( 'Width', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-icon i' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'icon_typography',
+					'selector' => '{{WRAPPER}} .service-box .service-box-icon i',
+				]
+			);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'title_section_style',
+			[
+				'label' => __( 'Title', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
 			$this->add_control(
 				'title_color',
 				[
@@ -358,14 +429,27 @@ Style Tab
 					'selector' => '{{WRAPPER}} .service-box .service-box-title h2, {{WRAPPER}} .elementor-icon-box-content .elementor-icon-box-title a',
 				]
 			);
-			$this->add_control(
-				'heading_description',
+			$this->add_responsive_control(
+				'title_margin',
 				[
-					'label' => __( 'Description', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::HEADING,
-					'separator' => 'before',
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-title h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
 				]
 			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'description_section_style',
+			[
+				'label' => __( 'Description', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
 			$this->add_control(
 				'description_color',
 				[
@@ -385,17 +469,195 @@ Style Tab
 					'selector' => '{{WRAPPER}} .service-box-desc p',
 				]
 			);
+			$this->add_responsive_control(
+				'description_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-box-desc p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
 		$this->end_controls_section();
-		
+
 		$this->start_controls_section(
-			'box_section',
+			'button_section_style',
 			[
-				'label' => __( 'Box', 'dreamit-elementor-extension' ),
+				'label' => __( 'Button', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
+			$this->start_controls_tabs(
+				'button_style_tabs'
+			);
+				$this->start_controls_tab(
+					'button_style_normal_tab',
+					[
+						'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+					]
+				);
+				
+					$this->add_control(
+						'button_text_color',
+						[
+							'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::COLOR,
+							'default' => '',
+							'selectors' => [
+								'{{WRAPPER}} .service-box .service-btn a' => 'color: {{VALUE}};',
+							],
+						]
+					);
+					$this->add_control(
+						'button_background_color',
+						[
+							'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::COLOR,
+							'default' => '',
+							'selectors' => [
+								'{{WRAPPER}} .service-box .service-btn a' => 'background-color: {{VALUE}};',
+							],
+						]
+					);
+					$this->add_group_control(
+						\Elementor\Group_Control_Border::get_type(),
+						[
+							'name' => 'button_border',
+							'label' => __( 'Border', 'dreamit-elementor-extension' ),
+							'selector' => '{{WRAPPER}} .service-box .service-btn a',
+						]
+					);
+					$this->add_responsive_control(
+						'button_border_radius',
+						[
+							'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::DIMENSIONS,
+							'size_units' => [ 'px', 'em', '%' ],
+							'selectors' => [
+								'{{WRAPPER}} .service-box .service-btn a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							],
+						]
+					);
+				$this->end_controls_tab();
+				
+				$this->start_controls_tab(
+					'button_style_hover_tab',
+					[
+						'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+					]
+				);
 
-		
+					$this->add_control(
+						'hover_button_text_color',
+						[
+							'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::COLOR,
+							'default' => '',
+							'selectors' => [
+								'{{WRAPPER}} .service-box .service-btn a:hover' => 'color: {{VALUE}};',
+							],
+						]
+					);
+					$this->add_control(
+						'hover_button_background_color',
+						[
+							'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::COLOR,
+							'default' => '',
+							'selectors' => [
+								'{{WRAPPER}} .service-box .service-btn a:hover' => 'background-color: {{VALUE}};',
+							],
+						]
+					);
+					$this->add_group_control(
+						\Elementor\Group_Control_Border::get_type(),
+						[
+							'name' => 'hover_button_border',
+							'label' => __( 'Border', 'dreamit-elementor-extension' ),
+							'selector' => '{{WRAPPER}} .service-box .service-btn a:hover',
+						]
+					);
+					$this->add_responsive_control(
+						'hover_button_border_radius',
+						[
+							'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::DIMENSIONS,
+							'size_units' => [ 'px', 'em', '%' ],
+							'selectors' => [
+								'{{WRAPPER}} .service-box .service-btn a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							],
+						]
+					);
+				$this->end_controls_tab();
+				
+			$this->end_controls_tabs();
+
+			$this->add_responsive_control(
+				'button_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-btn a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'separator' => 'before',
+				]
+			);
+			$this->add_control(
+				'button_height',
+				[
+					'label' => __( 'Height', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-btn a' => 'height: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+			$this->add_control(
+				'button_width',
+				[
+					'label' => __( 'Width', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 1000,
+							'step' => 5,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .service-box .service-btn a' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'button_typography',
+					'selector' => '{{WRAPPER}} .service-box .service-btn a',
+				]
+			);
 
 		$this->end_controls_section();
 
@@ -404,17 +666,6 @@ Style Tab
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
-
-
-
-		$icon_tag = 'a';
-		if ( ! empty( $settings['link']['url'] ) ) {
-			
-
-			$this->add_link_attributes( 'link', $settings['link'] );
-		}
-
-		$link_attributes = $this->get_render_attribute_string( 'link' );
 
 
 
@@ -454,10 +705,10 @@ Style Tab
 
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 								<div class="service-btn">
-									<<?php echo implode( ' ', [ $icon_tag, $link_attributes ] ); ?>>
+									<a href="<?php echo esc_url($settings['link']['url']); ?>">
 										<?php echo $settings['button_text']; ?>
 										<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
-									</<?php echo $icon_tag; ?>>
+									</a>
 								</div>
 							<?php } ?>
 						</div>
@@ -488,7 +739,7 @@ Style Tab
 
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 							<div class="service-btn">
-								<a href="#">
+								<a href="<?php echo esc_url($settings['link']['url']); ?>">
 									<?php echo $settings['button_text']; ?>
 									<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 								</a>
@@ -536,10 +787,10 @@ Style Tab
 								</div>
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 								<div class="service-btn">
-									<<?php echo implode( ' ', [ $icon_tag, $link_attributes ] ); ?>>
+									<a href="<?php echo esc_url($settings['link']['url']); ?>">
 										<?php echo $settings['button_text']; ?>
 										<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
-									</<?php echo $icon_tag; ?>>
+									</a>
 								</div>
 							<?php } ?>
 							</div>
@@ -573,7 +824,7 @@ Style Tab
 							</div>
 							<?php if( 'yes'===$settings['show_button'] ){ ?>
 							<div class="service-btn">
-								<a href="#">
+								<a href="<?php echo esc_url($settings['link']['url']); ?>">
 									<?php echo $settings['button_text']; ?>
 									<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 								</a>

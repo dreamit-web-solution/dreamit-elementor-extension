@@ -18,6 +18,10 @@ if(file_exists(dirname(__FILE__).'/vendor/autoload.php')){
 	require_once dirname(__FILE__).'/vendor/autoload.php';
 }
 
+
+use Inc\post;
+
+
 final class DreamIT_Elementor_Extension {
 
 	/**
@@ -91,7 +95,6 @@ final class DreamIT_Elementor_Extension {
 
 		add_action( 'init', [ $this, 'i18n' ] );
 		add_action( 'plugins_loaded', [ $this, 'init' ] );
-		
 	}
 
 	/**
@@ -156,7 +159,8 @@ final class DreamIT_Elementor_Extension {
 
 		add_action( 'elementor/controls/controls_registered', [ $this, 'modify_falticon' ], 10, 1 );
 		
-		
+
+
 
 	}
 
@@ -251,7 +255,7 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-flip-box.php');
 		require_once( __DIR__ . '/widgets/dreamit-feature-box.php');
 		require_once( __DIR__ . '/widgets/dreamit-slick-slider.php');
-		require_once( __DIR__ . '/widgets/team/dreamit-team.php');
+		require_once( __DIR__ . '/widgets/dreamit-team.php');
 		require_once( __DIR__ . '/widgets/dreamit-work-process.php');
 		require_once( __DIR__ . '/widgets/dreamit-call-to-action.php');
 		require_once( __DIR__ . '/widgets/dreamit-testimonial.php');
@@ -540,7 +544,8 @@ final class DreamIT_Elementor_Extension {
 
 		$controls_registry->get_control( 'icon' )->set_settings( 'options', array_merge( $icons, $new_add ) );
 	}
-	
+
+
 	
 
 }
