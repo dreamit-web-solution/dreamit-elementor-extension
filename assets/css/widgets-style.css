@@ -1,3 +1,4 @@
+
 /*
 =============
 JoraTali
@@ -2741,11 +2742,11 @@ Case Study
 ==========
 */
 
-.itsoft-single-cases-study {
+.dreamit-single-cases-study{
     position: relative;
 	z-index:999;
 }
-.em-cases-study-content {
+.cases-study-content {
 	position: absolute;
 	left: 0;
 	bottom: -100%;
@@ -2760,15 +2761,14 @@ Case Study
 	z-index: 999;
 	width: 100%;
 }
-.itsoft-single-cases-study:hover .em-cases-study-content{
+.dreamit-single-cases-study:hover .cases-study-content{
 	bottom: 0;
 }
-
 .case-study-thumb{
 	position:relative;
 	z-index:1;
 }
-.case-study-thumb::before {
+.case-study-thumb::before{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -2782,7 +2782,7 @@ Case Study
 	transition: .3s;
 	border-radius: 5px;
 }
-.itsoft-single-cases-study:hover .case-study-thumb:before{
+.dreamit-single-cases-study:hover .case-study-thumb:before{
 	opacity:1;
 }
 .em-cases-study-title h2 {
@@ -2793,21 +2793,16 @@ Case Study
 }
 .em-cases-study-title h2 a {
 	font-size: 20px;
-	font-weight: 600;
+	font-weight: 700;
 	margin: 0 0 0;
 	-webkit-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
-	color:#fff;
 }
-.em-cases-study-title h2 a:hover{
-	color:#fff;
+.case_category span {
+    color: #0C5ADB;
 }
-.case_category p span {
-    color: #fff;
-    letter-spacing: 1px;
-}
-/* Case Style Two */
+
 .case_default .em-cases-study-content{
     background: transparent;
     width: 100%;
@@ -2820,20 +2815,19 @@ Case Study
 .case_default .em-cases-study-title h2 a {
     font-size: 23px;
 }
-.case_default .itsoft-single-cases-study {
+.case_default .dreamit-single-cases-study {
     margin-bottom: 30px;
 }
-.case_default .case-study-thumb:before {
-    border-radius: 7px;
-    background: rgba(0, 0, 0, 0.30);
-    opacity: 1;
+
+.case_default .case-study-thumb {
+   position:relative;
+   z-index: 1;
 }
 
-
-
 .case_default .case-study-thumb:before {
-    border-radius: 7px;
+   display:none;
 }
+
 .case_default .em-cases-study-title h2 {
     margin: 0 0 7px;
     color: #fff;
@@ -2851,6 +2845,100 @@ Case Study
 }
 .em-case-study-button {
 	margin-top: 20px;
+}
+
+/* Case Style Two */
+.style-two .case-study-thumb::before{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(12,90,219,.85);
+	content: "";
+	opacity: 0;
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	transition: .3s;
+}
+.style-two .cases-study-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 70%;
+	text-align: center;
+	background: #fff;
+	width: 70%;
+	margin: auto;
+	border-radius: 5px;
+	padding: 40px 10px;
+	opacity: 0;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
+	transform: translateY(-70%);
+	z-index: 999;
+	bottom: inherit;
+}
+.style-two .dreamit-single-cases-study:hover .cases-study-content{
+	opacity:1;
+	top:50%;
+	bottom:inherit;
+	transform: translateY(-50%);
+}
+.style-two .cases-study-content
+.style-two .col-xs-12,
+.style-two .col-sm-12,
+.style-two .col-md-12{
+	padding: 0;
+}
+
+/* Case Style Three */
+.case-study-style3 .em-cases-study-title h2 {
+    font-size: 24px;
+    margin: 12px 0 0;
+}
+.case-study-style3 .em-cases-study-title h2 a {
+color:#fff;
+}
+.case-study-style3 .case_category span {
+    color: #fff;
+}
+.case-study-style3 .em-case-study-button a {
+    display: inline-block;
+    background: #fff;
+    padding: 3px 20px;
+    border-radius: 30px;
+    color: #0C5ADB;
+    margin-top: 10px;
+}
+.case-study-style3 .cases-study-content {
+    top: 76%;
+    background: transparent;
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+    opacity: 1;
+}
+.case-study-style3 .case-study-thumb:before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(black));
+    background: linear-gradient(to bottom,rgba(0,0,0,0),#000);
+    top: 25px;
+    content: "";
+    opacity: 1;
+    transition: .5s;
+}
+.case-study-style3 .techno-single-cases-study:hover .case-study-thumb::before {
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(37, 19, 209,.2)),to(blue));
+    background-image: linear-gradient(to bottom,rgba(37, 19, 209,.4),#2513d1);
+	top: 0;
+}
+.case-study-style3 .techno-single-cases-study:hover .cases-study-content{
+	top: 70%;
 }
 
 /*
