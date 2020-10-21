@@ -80,12 +80,47 @@ class ServiceBox extends Widget_Base{
 		$this->end_controls_section();
 
 		$this->start_controls_section(
+			'image_section',
+			[
+				'label' => __( 'Image', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_CONTENT,
+				'condition' => [
+					'select_style' => 'three',
+				]
+			]
+		);
+			$this->add_control(
+				'single_img',
+				[
+				    'label' => esc_html__('Image','dreamit-elementor-extension'),
+				    'type'=>Controls_Manager::MEDIA,
+				    'default' => [
+					  'url' => \Elementor\Utils::get_placeholder_image_src(),
+				    ],
+				]
+			);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'service_section',
 			[
 				'label' => __( 'Title & Description', 'dreamit-elementor-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
+			$this->add_control(
+				'title_number',
+				[
+					'label' => __( 'Number', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::TEXT,
+					'dynamic' => [
+						'active' => true,
+					],
+					'placeholder' => __( 'Enter Number', 'dreamit-elementor-extension' ),
+					'label_block' => true,
+					'default' => __( '01', 'dreamit-elementor-extension' ),
+				]
+			);
 			$this->add_control(
 				'title_text',
 				[
@@ -193,6 +228,8 @@ Style Tab
 						'two' => __( 'Two', 'dreamit-elementor-extension' ),
 						'three' => __( 'Three', 'dreamit-elementor-extension' ),
 						'four' => __( 'Four', 'dreamit-elementor-extension' ),
+						'five' => __( 'Five', 'dreamit-elementor-extension' ),
+						'six' => __( 'Six', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
@@ -661,6 +698,141 @@ Style Tab
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'box_section_style',
+			[
+				'label' => __( 'Box', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->start_controls_tabs(
+				'box_style_tabs'
+			);
+				$this->start_controls_tab(
+					'box_style_normal_tab',
+					[
+						'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+					]
+				);
+				
+					$this->add_group_control(
+						\Elementor\Group_Control_Border::get_type(),
+						[
+							'name' => 'box_border',
+							'label' => __( 'Border', 'dreamit-elementor-extension' ),
+							'selector' => '{{WRAPPER}} .service-box',
+						]
+					);
+
+					$this->add_responsive_control(
+						'box_border_radius',
+						[
+							'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::DIMENSIONS,
+							'size_units' => [ 'px', 'em', '%' ],
+							'selectors' => [
+								'{{WRAPPER}} .service-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						\Elementor\Group_Control_Box_Shadow::get_type(),
+						[
+							'name' => 'box_shadow',
+							'label' => __( 'Box Shadow', 'dreamit-elementor-extension' ),
+							'selector' => '{{WRAPPER}} .service-box',
+						]
+					);
+
+					$this->add_group_control(
+						\Elementor\Group_Control_Background::get_type(),
+						[
+							'name' => 'box_background',
+							'label' => __( 'Background', 'dreamit-elementor-extension' ),
+							'types' => [ 'classic', 'gradient', 'video' ],
+							'selector' => '{{WRAPPER}} .service-box',
+						]
+					);
+				
+				$this->end_controls_tab();
+				
+				$this->start_controls_tab(
+					'box_style_hover_tab',
+					[
+						'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+					]
+				);
+
+					$this->add_group_control(
+						\Elementor\Group_Control_Border::get_type(),
+						[
+							'name' => 'hover_box_border',
+							'label' => __( 'Border', 'dreamit-elementor-extension' ),
+							'selector' => '{{WRAPPER}} .service-box:hover',
+						]
+					);
+
+					$this->add_responsive_control(
+						'hover_box_border_radius',
+						[
+							'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+							'type' => \Elementor\Controls_Manager::DIMENSIONS,
+							'size_units' => [ 'px', 'em', '%' ],
+							'selectors' => [
+								'{{WRAPPER}} .service-box:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						\Elementor\Group_Control_Box_Shadow::get_type(),
+						[
+							'name' => 'hover_box_shadow',
+							'label' => __( 'Box Shadow', 'dreamit-elementor-extension' ),
+							'selector' => '{{WRAPPER}} .service-box:hover',
+						]
+					);
+
+					$this->add_group_control(
+						\Elementor\Group_Control_Background::get_type(),
+						[
+							'name' => 'hover_box_background',
+							'label' => __( 'Background', 'dreamit-elementor-extension' ),
+							'types' => [ 'classic', 'gradient', 'video' ],
+							'selector' => '{{WRAPPER}} .service-box:hover',
+						]
+					);
+				
+				$this->end_controls_tab();
+				
+			$this->end_controls_tabs();
+
+			$this->add_responsive_control(
+				'box_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'separator' => 'before',
+				]
+			);
+			$this->add_responsive_control(
+				'box_padding',
+				[
+					'label' => __( 'Padding', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .service-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+		$this->end_controls_section();
 	}
 
 	protected function render() {
@@ -719,41 +891,43 @@ Style Tab
 		<?php }elseif($settings['select_style']=='two'){ ?>
 
 
-					<div class="service-box service-style-two">
+			<div class="service-box service-style-two">
 
-							<?php if($settings['icons_type'] == 'icon' ){ ?>
-							<div class="service-box-icon">
-								<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
-							</div>
-							<?php } ?>
+				<?php if($settings['icons_type'] == 'icon' ){ ?>
+				<div class="service-box-icon">
+					<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
+				</div>
+				<?php } ?>
 
-						<div class="service-box-content">
+				<div class="service-box-content">
 
-							<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
-								<h2><?php echo $settings['title_text']; ?></h2>
-							</div>
+					<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
+						<h2><?php echo $settings['title_text']; ?></h2>
+					</div>
 
-							<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
-								<p><?php echo $settings['description_text']; ?></p>
-							</div>
+					<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
+						<p><?php echo $settings['description_text']; ?></p>
+					</div>
 
-							<?php if( 'yes'===$settings['show_button'] ){ ?>
-							<div class="service-btn">
-								<a href="<?php echo esc_url($settings['link']['url']); ?>">
-									<?php echo $settings['button_text']; ?>
-									<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
-								</a>
-							</div><!-- .service-btn	-->
-							<?php } ?>						
-						</div>
-					</div><!-- .service-box .service-style-two -->
+					<?php if( 'yes'===$settings['show_button'] ){ ?>
+					<div class="service-btn">
+						<a href="<?php echo esc_url($settings['link']['url']); ?>">
+							<?php echo $settings['button_text']; ?>
+							<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
+						</a>
+					</div><!-- .service-btn	-->
+					<?php } ?>
+
+				</div><!-- .service-box-content -->
+			</div><!-- .service-box .service-style-two -->
 
 
 		<?php }elseif($settings['select_style']=='three'){ ?>
 
 			<div class="service-box service-style-three">		
 				<div class="service-box-thumb">
-					<img src="<?php echo $settings['image']['url']; ?>" alt="">
+
+					<img src="<?php echo $settings['single_img']['url']; ?>" alt="">
 
 					<div class="service-content-front">
 						
@@ -768,6 +942,7 @@ Style Tab
 						</div>
 
 					</div>
+
 					<div class="service-content-back">
 						<div class="service-content-back-inner">
 							
@@ -781,18 +956,21 @@ Style Tab
 
 								<div class="service-box-title">
 									<h2><?php echo $settings['title_text']; ?></h2>
-								</div>						
+								</div>
+
 								<div class="service-box-desc">
 									<p><?php echo $settings['description_text']; ?></p>
 								</div>
-							<?php if( 'yes'===$settings['show_button'] ){ ?>
+
+								<?php if( 'yes'===$settings['show_button'] ){ ?>
 								<div class="service-btn">
 									<a href="<?php echo esc_url($settings['link']['url']); ?>">
 										<?php echo $settings['button_text']; ?>
 										<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
 									</a>
 								</div>
-							<?php } ?>
+								<?php } ?>
+
 							</div>
 						</div>
 					</div>
@@ -800,7 +978,6 @@ Style Tab
 			</div>
 					
 		<?php }elseif($settings['select_style']=='four'){ ?>
-
 
 				<div class="service-box style_4">
 
@@ -833,6 +1010,68 @@ Style Tab
 						</div>
 					</div>
 				</div>
+
+		<?php }elseif($settings['select_style']=='five'){ ?>
+
+				<div class="service-box style-five">		
+					<div class="em_service_content d-flex">
+						<div class="service-number">
+							<span class="service-box-number"><?php echo $settings['title_number'];?></span>
+						</div>
+						
+						<div class="service_box_text">	
+								<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
+									<h3>
+									<?php echo $settings['title_text']; ?>
+									</h3>
+								</div>
+
+							<div class="service-box-inner">				
+								<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
+									<p><?php echo $settings['description_text']; ?></p>
+								</div>						
+							</div>
+							
+							<?php if( 'yes'===$settings['show_button'] ){ ?>
+							<div class="service-btn">
+								<a href="<?php echo esc_url($settings['link']['url']); ?>">
+									<?php echo $settings['button_text']; ?>
+									<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
+								</a>
+							</div><!-- .service-btn	-->
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+
+		<?php }elseif($settings['select_style']=='six'){ ?>
+
+				<div class="service-box service-style-six">
+
+					<div class="service-box-content">
+
+						<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
+							<h2><?php echo $settings['title_text']; ?></h2>
+						</div>
+						<?php if($settings['icons_type'] == 'icon' ){ ?>
+						<div class="service-box-icon">
+							<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
+						</div>
+						<?php } ?>
+						<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
+							<p><?php echo $settings['description_text']; ?></p>
+						</div>
+
+						<?php if( 'yes'===$settings['show_button'] ){ ?>
+						<div class="service-btn">
+							<a href="<?php echo esc_url($settings['link']['url']); ?>">
+								<?php echo $settings['button_text']; ?>
+								<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
+							</a>
+						</div><!-- .service-btn	-->
+						<?php } ?>						
+					</div>
+				</div><!-- .service-box .service-style-six -->
 
 		<?php }
 	}

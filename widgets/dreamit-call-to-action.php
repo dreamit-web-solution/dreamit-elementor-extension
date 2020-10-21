@@ -79,6 +79,7 @@ class CallToAction extends Widget_Base{
 					'type' => Controls_Manager::TEXT,
 					'default' => __( 'Default Title', 'itsoft' ),
 					'placeholder' => __( 'Type your Title here', 'itsoft' ),
+					'label_block' => true,
 				]
 			);
 			$this->add_control(
@@ -121,6 +122,59 @@ Style Tab
 ==========
 */
 
+		$this->start_controls_section(
+			'general_section',
+			[
+				'label' => __( 'General', 'dreamit-elementor-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'select_style',
+				[
+					'label' => __( 'Select Style', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::SELECT,
+					'options' => [
+						'one' => __( 'One', 'dreamit-elementor-extension' ),
+						'two' => __( 'Two', 'dreamit-elementor-extension' ),
+					],
+					'default' => 'one',
+					
+				]
+			);
+			$this->add_responsive_control(
+				'text_align',
+				[
+					'label' => __( 'Alignment', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::CHOOSE,
+					'options' => [
+						'left' => [
+							'title' => __( 'Left', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-left',
+						],
+						'center' => [
+							'title' => __( 'Center', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-center',
+						],
+						'right' => [
+							'title' => __( 'Right', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-right',
+						],
+						'justify' => [
+							'title' => __( 'Justified', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-justify',
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .call-to-action.style-two' => 'text-align: {{VALUE}};',
+					],
+					'condition' => [
+						'select_style' => 'two',
+					]
+				]
+			);
+		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'color_section',
@@ -261,39 +315,88 @@ Style Tab
 
 		?>
 
-		<div class="call-to-action">
-			<div class="call-to-video">
+		<?php if($settings['select_style']=='one'){ ?>
 
-				<?php if( !empty( $settings['video_url']['url'] ) ){ ?>
-					<div class="call-video-link">
+			<div class="call-to-action">
+				<div class="call-to-video">
 
-						<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo esc_url($settings['video_url']['url']); ?>"><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i></a>
+					<?php if( !empty( $settings['video_url']['url'] ) ){ ?>
+						<div class="call-video-link">
 
+							<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo esc_url($settings['video_url']['url']); ?>"><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i></a>
+
+						</div>
+					<?php } ?>
+
+				</div>
+
+				<div class="single_call-to-action_text">
+					<div class="call-to-action_top_text">
+						<div class="call-to-action-title">
+							<span class="subtitlespan"><h3><?php echo $settings['subtitle']; ?></h3></span>
+							<h2><?php echo $settings['title']; ?></h2>
+						</div>
 					</div>
-				<?php } ?>
+					<div class="call-to-action-inner">				
+						<div class="call-to-action-desc">
+							<p><?php echo $settings['description']; ?></p>
+						</div>						
+					</div>
 
+					<?php if( !empty($settings['button-text']) ){ ?>
+					<div class="call-to-action-btn">
+						<a href="<?php echo esc_url($settings['button_url']['url']); ?>"><?php echo $settings['button-text']; ?></a>
+					</div>
+					<?php } ?>
+				</div>
 			</div>
 
-			<div class="single_call-to-action_text">
-				<div class="call-to-action_top_text">
-					<div class="call-to-action-title">
-						<span class="subtitlespan"><h3><?php echo $settings['subtitle']; ?></h3></span>
-						<h2><?php echo $settings['title']; ?></h2>
+		<?php }elseif($settings['select_style']=='two'){ ?>
+
+			<div class="call-to-action style-two">
+				<div class="row align-items-center">
+
+				<div class="col-md-8">
+				<div class="single_call-to-action_text">
+					<div class="call-to-action_top_text">
+						<div class="call-to-action-title">
+							<span class="subtitlespan"><h3><?php echo $settings['subtitle']; ?></h3></span>
+							<h2><?php echo $settings['title']; ?></h2>
+						</div>
 					</div>
+
+					<?php if( !empty($settings['description']) ){ ?>
+					<div class="call-to-action-inner">				
+						<div class="call-to-action-desc">
+							<p><?php echo $settings['description']; ?></p>
+						</div>						
+					</div>
+					<?php } ?>
+
+					<?php if( !empty($settings['button-text']) ){ ?>
+					<div class="call-to-action-btn">
+						<a href="<?php echo esc_url($settings['button_url']['url']); ?>"><?php echo $settings['button-text']; ?></a>
+					</div>
+					<?php } ?>
 				</div>
-				<div class="call-to-action-inner">				
-					<div class="call-to-action-desc">
-						<p><?php echo $settings['description']; ?></p>
-					</div>						
 				</div>
 
-				<?php if( !empty($settings['button-text']) ){ ?>
-				<div class="call-to-action-btn">
-					<a href="<?php echo esc_url($settings['button_url']['url']); ?>"><?php echo $settings['button-text']; ?></a>
+				<div class="col-md-4 align-items-center">
+				<div class="call-to-video">
+					<?php if( !empty( $settings['video_url']['url'] ) ){ ?>
+						<div class="call-video-link">
+
+							<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo esc_url($settings['video_url']['url']); ?>"><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i></a>
+
+						</div>
+					<?php } ?>
 				</div>
-				<?php } ?>
+				</div>
+
+				</div>
 			</div>
-		</div>
+
+		<?php } ?>
 
 		<?php
 	}

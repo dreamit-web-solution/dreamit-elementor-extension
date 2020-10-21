@@ -4,6 +4,7 @@
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Group_Control_Typography;
 
 if(!defined('ABSPATH')) exit;
 
@@ -68,7 +69,117 @@ Style Tab
 			);
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'title_section',
+			[
+				'label' => __( 'Title', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
 
+			$this->start_controls_tabs(
+				'title_style_tabs'
+			);
+				$this->start_controls_tab(
+					'title_style_normal_tab',
+					[
+						'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+					]
+				);
+				
+					$this->add_control(
+						'title_color',
+						[
+							'label' => __( 'Color', 'dreamit-elementor-extension' ),
+							'type' => Controls_Manager::COLOR,
+							'default' => '',
+							'selectors' => [
+								'{{WRAPPER}} .em-cases-study-title h2 a' => 'color: {{VALUE}};',
+							],
+						]
+					);
+				
+				$this->end_controls_tab();
+				
+				$this->start_controls_tab(
+					'title_style_hover_tab',
+					[
+						'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+					]
+				);
+
+					$this->add_control(
+						'hover_title_color',
+						[
+							'label' => __( 'Color', 'dreamit-elementor-extension' ),
+							'type' => Controls_Manager::COLOR,
+							'default' => '',
+							'selectors' => [
+								'{{WRAPPER}} .em-cases-study-title h2 a:hover' => 'color: {{VALUE}};',
+							],
+						]
+					);
+				
+				$this->end_controls_tab();
+				
+			$this->end_controls_tabs();
+
+			$this->add_responsive_control(
+				'title_margin',
+				[
+					'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', 'em', '%' ],
+					'selectors' => [
+						'{{WRAPPER}} .em-cases-study-title h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+					'separator' => 'before',
+				]
+			);
+
+	        $this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'title_typography',
+					'label' => esc_html__( 'Typography', 'dreamit-elementor-extension' ),
+					'selector' => 
+	                    '{{WRAPPER}} .em-cases-study-title h2 a',
+				]
+			);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'category_section',
+			[
+				'label' => __( 'Category', 'dreamit-elementor-extension' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+			$this->add_control(
+				'category_color',
+				[
+					'label' => __( 'Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .case_category span' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+	        $this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'category_typography',
+					'label' => esc_html__( 'Typography', 'dreamit-elementor-extension' ),
+					'selector' => 
+	                    '{{WRAPPER}} .case_category span',
+				]
+			);
+
+		$this->end_controls_section();
 	}
 
 	protected function render(){

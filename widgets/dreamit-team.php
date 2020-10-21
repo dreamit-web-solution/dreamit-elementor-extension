@@ -419,7 +419,7 @@ class Team extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'label' => esc_html__( 'Title Typography', 'rsaddon' ),
+				'label' => esc_html__( 'Title Typography', 'dreamit-elementor-extension' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => 
                     '{{WRAPPER}} .team-grid-style1 .team-item .team-content h3.team-name a',

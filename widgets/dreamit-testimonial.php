@@ -131,15 +131,18 @@ Style Tab
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
-		$this->start_controls_tabs(
-			'style_tabs'
-		);
-		$this->start_controls_tab(
-			'style_normal_tab',
-			[
-				'label' => __( 'Normal', 'dreamit-elementor-extension' ),
-			]
-		);
+
+			$this->add_control(
+				'icon_color',
+				[
+					'label' => __( 'Icon Color', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+						'{{WRAPPER}} .testi_thumb:before' => 'color: {{VALUE}};',
+					],
+				]
+			);
 			
 			$this->add_control(
 				'icon_background_color',
@@ -152,37 +155,6 @@ Style Tab
 					],
 				]
 			);
-		$this->end_controls_tab();
-		$this->start_controls_tab(
-			'style_hover_tab',
-			[
-				'label' => __( 'Hover', 'dreamit-elementor-extension' ),
-			]
-		);
-			$this->add_control(
-				'hover_primary_color',
-				[
-					'label' => __( 'Primary Color', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'color: {{VALUE}}',
-					],
-				]
-			);
-			$this->add_control(
-				'hover_background_color',
-				[
-					'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-						'{{WRAPPER}} .service-box:hover .service-box-icon i' => 'background-color: {{VALUE}};',
-					],
-				]
-			);
-		$this->end_controls_tab();
-		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 
@@ -235,7 +207,7 @@ Style Tab
 			$this->add_control(
 				'quote_color',
 				[
-					'label' => __( 'Quote Color', 'dreamit-elementor-extension' ),
+					'label' => __( 'Description Color', 'dreamit-elementor-extension' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
 					'default' => '',
 					'separator' => 'before',
