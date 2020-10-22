@@ -446,28 +446,9 @@ Style Tab
                         ],
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .rs-flip-box .rs-flip-box-inner .back-part, 
-                        {{WRAPPER}}  .rs-flip-box .rs-flip-box-inner .front-part' => 'height: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .flip-box .flip-box-inner .back-part, 
+                        {{WRAPPER}}  .flip-box .flip-box-inner .front-part' => 'height: {{SIZE}}{{UNIT}};',
                     ],                
-                ]
-            );
-
-            $this->add_responsive_control(
-                'flip_box_transition',
-                [
-                    'label' => esc_html__( 'Transition', 'dreamit-elementor-extension' ),
-                    'type' => Controls_Manager::SLIDER,
-                    'range' => [
-                        'px' => [
-                            'min' => 0.10,
-                            'max' => 1,
-                            'step' => 0.01,
-                        ],
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .rs-flip-box .rs-flip-box-inner .back-part, 
-                        {{WRAPPER}}  .rs-flip-box .rs-flip-box-inner .front-part' => 'transition: {{SIZE}}s;',
-                    ],
                 ]
             );
 
@@ -546,24 +527,6 @@ Style Tab
                     'selectors' => [
                         '{{WRAPPER}} .front-part' => 'align-items: {{VALUE}}'
                     ]
-                ]
-            );
-
-            $this->add_responsive_control(
-                'flip_box_front_content_transition',
-                [
-                    'label' => esc_html__( 'Content Transition', 'dreamit-elementor-extension' ),
-                    'type' => Controls_Manager::SLIDER,
-                    'range' => [
-                        'px' => [
-                            'min' => 0.10,
-                            'max' => 1,
-                            'step' => 0.01,
-                        ],
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .rs-flip-box .rs-flip-box-inner .front-content-part' => 'transition: {{SIZE}}s;',
-                    ],
                 ]
             );
 
@@ -1036,12 +999,20 @@ Style Tab
                     'selector' => '{{WRAPPER}} .flip-box .flip-box-inner .back-part',
                 ]
             );
+            $this->add_control(
+                'back_background_overlay_heading',
+                [
+                    'label' => __( 'Background Overlay', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
             $this->add_group_control(
                 \Elementor\Group_Control_Background::get_type(),
                 [
                     'name' => 'back_background_overlay',
                     'label' => __( 'Background Overlay', 'dreamit-elementor-extension' ),
-                    'types' => [ 'classic', 'gradient', 'video' ],
+                    'types' => [ 'classic', 'gradient' ],
                     'selector' => '{{WRAPPER}} .flip-box .flip-box-inner .back-part .back-background-overlay',
                 ]
             );
@@ -1100,24 +1071,6 @@ Style Tab
                     'selectors' => [
                         '{{WRAPPER}} .back-part' => 'align-items: {{VALUE}}'
                     ]
-                ]
-            );
-
-            $this->add_responsive_control(
-                'flip_box_back_content_transition',
-                [
-                    'label' => esc_html__( 'Content Transition', 'dreamit-elementor-extension' ),
-                    'type' => Controls_Manager::SLIDER,
-                    'range' => [
-                        'px' => [
-                            'min' => 0.10,
-                            'max' => 1,
-                            'step' => 0.01,
-                        ],
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .rs-flip-box .rs-flip-box-inner .front-content-part' => 'transition: {{SIZE}}s;',
-                    ],
                 ]
             );
 
@@ -1719,7 +1672,7 @@ Style Tab
                     </div><!-- .front-part -->
 
                     <div class="back-part">
-                        <div class="back-background-overlay">
+                        <div class="back-background-overlay"></div>
                         <div class="back-content-part">
                             <?php if( !empty($settings['back_icon']) || !empty($settings['back_image']['url'])){?>
                                 <div class="back-icon-part">
@@ -1759,7 +1712,7 @@ Style Tab
                                 </div>
                             <?php endif; ?>
                         </div>
-                        </div>
+                        
                     </div><!-- .back-part -->
                 </div><!-- .flip-box-wrap -->
             </div><!-- .flip-box-inner -->

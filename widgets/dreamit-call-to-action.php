@@ -38,14 +38,14 @@ class CallToAction extends Widget_Base{
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => __( 'Content', 'itsoft' ),
+				'label' => __( 'Content', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 			$this->add_control(
 				'video_url',
 				[
-					'label' => __( 'Video URL', 'itsoft' ),
+					'label' => __( 'Video URL', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::URL,
 					'label_block' => true,
                     'default' => [
@@ -56,7 +56,7 @@ class CallToAction extends Widget_Base{
 			$this->add_control(
 				'video_icon',
 				[
-					'label' => __( 'Video Icon', 'itsoft' ),
+					'label' => __( 'Video Icon', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::ICONS,
 					'default' => [
 						'value' => 'fas fa-play',
@@ -66,46 +66,46 @@ class CallToAction extends Widget_Base{
 			$this->add_control(
 				'subtitle',
 				[
-					'label' => __( 'Sub Title', 'itsoft' ),
+					'label' => __( 'Sub Title', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => __( 'Default sub title', 'itsoft' ),
-					'placeholder' => __( 'Type your sub title here', 'itsoft' ),
+					'default' => __( 'Default sub title', 'dreamit-elementor-extension' ),
+					'placeholder' => __( 'Type your sub title here', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'title',
 				[
-					'label' => __( 'Title', 'itsoft' ),
+					'label' => __( 'Title', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => __( 'Default Title', 'itsoft' ),
-					'placeholder' => __( 'Type your Title here', 'itsoft' ),
+					'default' => __( 'Default Title', 'dreamit-elementor-extension' ),
+					'placeholder' => __( 'Type your Title here', 'dreamit-elementor-extension' ),
 					'label_block' => true,
 				]
 			);
 			$this->add_control(
 				'description',
 				[
-					'label' => __( 'Description', 'itsoft' ),
+					'label' => __( 'Description', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXTAREA,
-					'default' => __( 'Default Description', 'itsoft' ),
-					'placeholder' => __( 'Type your Description here', 'itsoft' ),
+					'default' => __( 'Default Description', 'dreamit-elementor-extension' ),
+					'placeholder' => __( 'Type your Description here', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'button-text',
 				[
-					'label' => __( 'Button Text', 'itsoft' ),
+					'label' => __( 'Button Text', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => __( 'Click Here', 'itsoft' ),
-					'placeholder' => __( 'Type your Button text', 'itsoft' ),
+					'default' => __( 'Click Here', 'dreamit-elementor-extension' ),
+					'placeholder' => __( 'Type your Button text', 'dreamit-elementor-extension' ),
 				]
 			);
 			$this->add_control(
 				'button_url',
 				[
-					'label' => __( 'Link', 'itsoft' ),
+					'label' => __( 'Link', 'dreamit-elementor-extension' ),
 					'type' => \Elementor\Controls_Manager::URL,
-					'placeholder' => __( 'https://your-link.com', 'itsoft' ),
+					'placeholder' => __( 'https://your-link.com', 'dreamit-elementor-extension' ),
 					'show_external' => true,
 					'default' => [
 						'url' => '',
@@ -179,14 +179,14 @@ Style Tab
 		$this->start_controls_section(
 			'color_section',
 			[
-				'label' => __( 'Text', 'itsoft' ),
+				'label' => __( 'Text', 'dreamit-elementor-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 			$this->add_control(
 				'title-color',
 				[
-					'label' => __( 'Title Color', 'itsoft' ),
+					'label' => __( 'Title Color', 'dreamit-elementor-extension' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
@@ -198,7 +198,7 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'title_typography',
-					'label' => __( 'Title Typography', 'itsoft' ),
+					'label' => __( 'Title Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .call-to-action-title h2',
 				]
@@ -206,7 +206,7 @@ Style Tab
 			$this->add_control(
 				'subtitle-color',
 				[
-					'label' => __( 'Sub Title Color', 'itsoft' ),
+					'label' => __( 'Sub Title Color', 'dreamit-elementor-extension' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
 					'default' => '',
 					'separator' => 'before',
@@ -219,7 +219,7 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'subtitle_typography',
-					'label' => __( 'Sub Title Typography', 'itsoft' ),
+					'label' => __( 'Sub Title Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .call-to-action-title h3',
 				]
@@ -227,7 +227,7 @@ Style Tab
 			$this->add_control(
 				'description-color',
 				[
-					'label' => __( 'Description Color', 'itsoft' ),
+					'label' => __( 'Description Color', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'separator' => 'before',
@@ -240,7 +240,7 @@ Style Tab
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'description_typography',
-					'label' => __( 'Description Typography', 'itsoft' ),
+					'label' => __( 'Description Typography', 'dreamit-elementor-extension' ),
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .call-to-action-desc p',
 				]
@@ -250,32 +250,33 @@ Style Tab
 		$this->start_controls_section(
 			'button_section',
 			[
-				'label' => __( 'Button', 'itsoft' ),
+				'label' => __( 'Button', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
-
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-					'name' => 'button_typography',
-					'label' => __( 'Typography', 'itsoft' ),
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .call-to-action-btn a',
-				]
-			);
 
 			$this->start_controls_tabs('style_tabs');
 			$this->start_controls_tab(
 				'style_normal_tab',
 				[
-					'label' => __( 'Normal', 'itsoft' ),
+					'label' => __( 'Normal', 'dreamit-elementor-extension' ),
 				]
 			);
 				$this->add_control(
+					'button_text_color',
+					[
+						'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+						'type' => \Elementor\Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .call-to-action-btn a' => 'color: {{VALUE}};',
+						],
+					]
+				);
+				$this->add_control(
 					'button-color',
 					[
-						'label' => __( 'Button Color', 'itsoft' ),
+						'label' => __( 'Button Color', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
@@ -287,13 +288,24 @@ Style Tab
 			$this->start_controls_tab(
 				'style_hover_tab',
 				[
-					'label' => __( 'Hover', 'itsoft' ),
+					'label' => __( 'Hover', 'dreamit-elementor-extension' ),
 				]
 			);
 				$this->add_control(
+					'hover_button_text_color',
+					[
+						'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+						'type' => \Elementor\Controls_Manager::COLOR,
+						'default' => '',
+						'selectors' => [
+							'{{WRAPPER}} .call-to-action-btn a:hover' => 'color: {{VALUE}};',
+						],
+					]
+				);
+				$this->add_control(
 					'button-hover-color',
 					[
-						'label' => __( 'Button Color', 'itsoft' ),
+						'label' => __( 'Button Color', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '',
 						'selectors' => [
@@ -304,6 +316,14 @@ Style Tab
 			$this->end_controls_tab();
 			$this->end_controls_tabs();
 
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'button_typography',
+					'label' => __( 'Typography', 'dreamit-elementor-extension' ),
+					'selector' => '{{WRAPPER}} .call-to-action-btn a',
+				]
+			);
 		$this->end_controls_section();
 	}
 

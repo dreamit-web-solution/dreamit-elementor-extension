@@ -307,6 +307,15 @@ Style Tab
 				]
 			);
 
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
+				[
+					'name' => 'number_suffix_typography',
+					'label' => __( 'Suffix Typography', 'dreamit-elementor-extension' ),
+					'selector' => '{{WRAPPER}} .countr_text h3',
+				]
+			);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(

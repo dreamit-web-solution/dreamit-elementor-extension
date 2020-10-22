@@ -130,10 +130,6 @@ Style Tab
 		?>
 
 
-
-
-		
-
 			<div class=" blog_style_two">				
 				<div class="blog_wrap blog_carousel owl-carousel curosel-style">
 				
@@ -143,13 +139,13 @@ Style Tab
 						<div class="col-md-12 col-xs-12 col-sm-12 " >
 							<div class="single_blog_adn">
 								<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-									<div class="itsoft-single-blog_adn ">
+									<div class="techno-single-blog_adn ">
 
 										<!-- BLOG THUMB -->
 										
-										<div class="itsoft-blog-thumb_adn ">
-											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('itsoft-blog-default'); ?></a>
-											<div class="itsoft-blog-meta-top">
+										<div class="techno-blog-thumb_adn ">
+											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('techno-blog-default'); ?></a>
+											<div class="techno-blog-meta-top">
 												<?php the_category();?>
 											</div>
 										</div>									
@@ -158,7 +154,7 @@ Style Tab
 										<div class="em-blog-content-area_adn ">
 
 											<!-- BLOG META -->
-											<div class="itsoft-blog-meta-left ">
+											<div class="techno-blog-meta-left ">
 												<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
 												<span><?php echo get_the_time(get_option('date_format')); ?></span>
 											</div>	
@@ -177,8 +173,8 @@ Style Tab
 
 											<!-- BLOG BUTTON -->
 											<?php if( 'yes'===$settings['show_button'] ){ ?>
-											<div class="itsoft-blog-readmore">
-												<a href="#" class="learn_btn"><?php echo $settings['button_text']; ?><?php \Elementor\Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true' ] ); ?></a>
+											<div class="techno-blog-readmore">
+												<a href="<?php the_permalink(); ?>" class="learn_btn"><?php echo $settings['button_text']; ?><?php \Elementor\Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true' ] ); ?></a>
 											</div>
 											<?php } ?>
 											
@@ -196,10 +192,6 @@ Style Tab
 					
 				</div>
 			</div>
-
-		
-
-
 
 
 

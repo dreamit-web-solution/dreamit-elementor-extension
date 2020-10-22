@@ -116,7 +116,6 @@ Style Tab
 						'one' => __( 'One', 'dreamit-elementor-extension' ),
 						'two' => __( 'Two', 'dreamit-elementor-extension' ),
 						'three' => __( 'Three', 'dreamit-elementor-extension' ),
-						'four' => __( 'Four', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
@@ -416,6 +415,90 @@ Style Tab
 				</div>
 				<?php } ?>								
 									
+			</div>
+
+		<?php }elseif($settings['select_style']=='three'){ ?>
+
+			<div class="testimonial_list owl-carousel curosel-style owl-loaded owl-drag testimonial-style-three">
+
+				<?php foreach ($slides as $slide) { ?>
+				<div class="col-md-12">	
+
+					<div class="single_testimonial">
+													
+						
+													
+						<div class="testi_content">
+							<div class="em_testi_text">
+								<?php echo $slide['quote_text']; ?>
+							</div>
+						</div>
+
+						<div class="test_thumb">
+							<img src="<?php echo $slide['image']['url']; ?>" alt="">
+						</div>
+
+						<div class="testi_title">
+
+							<div class="reviews_rating">
+
+								<?php if( $slide['rating']==5 ){ ?>
+								<div class="testi-star">
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+								</div>
+								<?php } ?>				
+								
+								<?php if( $slide['rating']==4 ){ ?>			
+								<div class="testi-star">
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star"></i>
+								</div>												
+								<?php } ?>
+								
+								<?php if( $slide['rating']==3 ){ ?>
+								<div class="testi-star">
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>												
+								<?php } ?>
+								
+								<?php if( $slide['rating']==2 ){ ?>
+								<div class="testi-star">
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>												
+								<?php } ?>
+								
+								<?php if( $slide['rating']==1 ){ ?>
+								<div class="testi-star">
+									<i class="fa fa-star active"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<?php } ?>
+							</div><!-- .reviews_rating -->
+
+							<h2><?php echo $slide['name']; ?><span><?php echo $slide['designation']; ?></span></h2>
+						</div>
+
+					</div>
+				</div>
+				<?php } ?>
 			</div>
 
 		<?php } ?>
