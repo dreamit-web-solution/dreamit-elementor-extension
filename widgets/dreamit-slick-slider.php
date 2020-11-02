@@ -219,6 +219,17 @@ class SlickSlider extends Widget_Base{
                 'selector' => '{{WRAPPER}} .hero-text h4, {{WRAPPER}} .slider_two .hero-text h3',
             ]
         );
+        $this->add_responsive_control(
+            'subtitle_margin',
+            [
+                'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-text h4' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->end_controls_section();
 
         //------------------------------ Style Description ------------------------------
@@ -243,43 +254,379 @@ class SlickSlider extends Widget_Base{
                 'selector' => '{{WRAPPER}} .hero-text p, {{WRAPPER}} .slider_two .hero-text h3',
             ]
         );
+        $this->add_responsive_control(
+            'description_margin',
+            [
+                'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-text p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->end_controls_section();
 
 
         //------------------------------ Style Button ------------------------------
         $this->start_controls_section(
             'style_button', [
-                'label' => __( 'Button', 'techno' ),
+                'label' => __( 'Button 1', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'slider_style' => ['style_02', 'style_03']
+            ]
+        );
+
+            $this->start_controls_tabs(
+                'button_style_tabs'
+            );
+                $this->start_controls_tab(
+                    'button_style_normal_tab',
+                    [
+                        'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+                    ]
+                );
+                
+                    $this->add_control(
+                        'button_text_color',
+                        [
+                            'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn' => 'color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_control(
+                        'button_background_color',
+                        [
+                            'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn' => 'background-color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_group_control(
+                        \Elementor\Group_Control_Border::get_type(),
+                        [
+                            'name' => 'button_border',
+                            'label' => __( 'Border', 'dreamit-elementor-extension' ),
+                            'selector' => '{{WRAPPER}} .single-slick .btn',
+                        ]
+                    );
+                    $this->add_responsive_control(
+                        'button_border_radius',
+                        [
+                            'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                            'size_units' => [ 'px', 'em', '%' ],
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
+                
+                $this->start_controls_tab(
+                    'button_style_hover_tab',
+                    [
+                        'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+                    ]
+                );
+
+                    $this->add_control(
+                        'hover_button_text_color',
+                        [
+                            'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn:hover' => 'color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_control(
+                        'hover_button_background_color',
+                        [
+                            'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn:hover' => 'background-color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_group_control(
+                        \Elementor\Group_Control_Border::get_type(),
+                        [
+                            'name' => 'hover_button_border',
+                            'label' => __( 'Border', 'dreamit-elementor-extension' ),
+                            'selector' => '{{WRAPPER}} .single-slick .btn:hover',
+                        ]
+                    );
+                    $this->add_responsive_control(
+                        'hover_button_border_radius',
+                        [
+                            'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                            'size_units' => [ 'px', 'em', '%' ],
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
+                
+            $this->end_controls_tabs();
+
+            $this->add_responsive_control(
+                'button_margin',
+                [
+                    'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => [ 'px', 'em', '%' ],
+                    'selectors' => [
+                        '{{WRAPPER}} .single-slick .btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                    'separator' => 'before',
                 ]
-            ]
-        );
-        $this->add_control(
-            'btn_color', [
-                'label' => esc_html__( 'Button accent color', 'techno' ),
-                'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .new_btn' => 'color: {{VALUE}}; border-color: {{VALUE}};',
-                    '{{WRAPPER}} .new_btn:hover' => 'background-color: {{VALUE}} !important;',
-                    '{{WRAPPER}} .slider_two .hero_call_btn .btn-md' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
-                ],
-                'default' => '#fc5c7d',
-            ]
-        );
-        $this->add_group_control(
-            Group_Control_Typography::get_type(), [
-                'name' => 'typography_btn',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .new_btn, {{WRAPPER}} .slider_two .hero_call_btn .btn-md',
-            ]
-        );
+            );
+            $this->add_control(
+                'button_height',
+                [
+                    'label' => __( 'Height', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1000,
+                            'step' => 5,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .single-slick .btn' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_control(
+                'button_width',
+                [
+                    'label' => __( 'Width', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1000,
+                            'step' => 5,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .single-slick .btn' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'button_typography',
+                    'selector' => '{{WRAPPER}} .single-slick .btn',
+                ]
+            );
+
         $this->end_controls_section();
+
+        $this->start_controls_section(
+            'style_button_two', [
+                'label' => __( 'Button 2', 'dreamit-elementor-extension' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+            $this->start_controls_tabs(
+                'button_two_style_tabs'
+            );
+                $this->start_controls_tab(
+                    'button_two_style_normal_tab',
+                    [
+                        'label' => __( 'Normal', 'dreamit-elementor-extension' ),
+                    ]
+                );
+                
+                    $this->add_control(
+                        'button_two_text_color',
+                        [
+                            'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn.button-two' => 'color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_control(
+                        'button_two_background_color',
+                        [
+                            'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn.button-two' => 'background-color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_group_control(
+                        \Elementor\Group_Control_Border::get_type(),
+                        [
+                            'name' => 'button_two_border',
+                            'label' => __( 'Border', 'dreamit-elementor-extension' ),
+                            'selector' => '{{WRAPPER}} .single-slick .btn.button-two',
+                        ]
+                    );
+                    $this->add_responsive_control(
+                        'button_two_border_radius',
+                        [
+                            'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                            'size_units' => [ 'px', 'em', '%' ],
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn.button-two' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
+                
+                $this->start_controls_tab(
+                    'button_two_style_hover_tab',
+                    [
+                        'label' => __( 'Hover', 'dreamit-elementor-extension' ),
+                    ]
+                );
+
+                    $this->add_control(
+                        'hover_button_two_text_color',
+                        [
+                            'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn.button-two:hover' => 'color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_control(
+                        'hover_button_two_background_color',
+                        [
+                            'label' => __( 'Background Color', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '',
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn.button-two:hover' => 'background-color: {{VALUE}};',
+                            ],
+                        ]
+                    );
+                    $this->add_group_control(
+                        \Elementor\Group_Control_Border::get_type(),
+                        [
+                            'name' => 'hover_button_two_border',
+                            'label' => __( 'Border', 'dreamit-elementor-extension' ),
+                            'selector' => '{{WRAPPER}} .single-slick .btn.button-two:hover',
+                        ]
+                    );
+                    $this->add_responsive_control(
+                        'hover_button_two_border_radius',
+                        [
+                            'label' => __( 'Border Radius', 'dreamit-elementor-extension' ),
+                            'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                            'size_units' => [ 'px', 'em', '%' ],
+                            'selectors' => [
+                                '{{WRAPPER}} .single-slick .btn.button-two:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
+                
+            $this->end_controls_tabs();
+
+            $this->add_responsive_control(
+                'button_two_margin',
+                [
+                    'label' => __( 'Margin', 'dreamit-elementor-extension' ),
+                    'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                    'size_units' => [ 'px', 'em', '%' ],
+                    'selectors' => [
+                        '{{WRAPPER}} .single-slick .btn.button-two' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                    'separator' => 'before',
+                ]
+            );
+            $this->add_control(
+                'button_two_height',
+                [
+                    'label' => __( 'Height', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1000,
+                            'step' => 5,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .single-slick .btn.button-two' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+            $this->add_control(
+                'button_two_width',
+                [
+                    'label' => __( 'Width', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1000,
+                            'step' => 5,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .single-slick .btn.button-two' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name' => 'button_two_typography',
+                    'selector' => '{{WRAPPER}} .single-slick .btn.button-two',
+                ]
+            );
+
+        $this->end_controls_section();
+
 
 	}
 
@@ -382,7 +729,7 @@ class SlickSlider extends Widget_Base{
                                                     <?php } ?>
 
                                                     <?php if( !empty($slide['btn2']) ){ ?>
-                                                    <a class="btn btn-gradient btn-md btn-animated-none" href="<?php echo esc_url($slide['btn2_url']['url']); ?>" target="_blank">
+                                                    <a class="btn btn-gradient btn-md btn-animated-none  button-two" href="<?php echo esc_url($slide['btn2_url']['url']); ?>" target="_blank">
                                                             <?php echo $slide['btn2']; ?>
                                                         <i class="fa fa-angle-right"></i>
                                                     </a>

@@ -246,6 +246,7 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-nivo-slider.php' );
 		require_once( __DIR__ . '/widgets/dreamit-post-tab.php' );
 		require_once( __DIR__ . '/widgets/dreamit-pricing-table.php');
+		require_once( __DIR__ . '/widgets/dreamit-portfolio.php');
 
 		// Register widget
 
@@ -268,6 +269,7 @@ final class DreamIT_Elementor_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new NivoSlider() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PostTab() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PricingTable());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Portfolio());
 		
 		add_action( 'elementor/elements/categories_registered', [$this, 'add_category'] );
 

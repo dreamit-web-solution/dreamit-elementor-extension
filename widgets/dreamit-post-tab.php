@@ -209,7 +209,7 @@ Style Tab
 								
 								<?php if(has_post_thumbnail()){?> 
 									<div class="col-md-6">
-											<div class="em_post_tab_thumb">
+											<div class="post_tab_thumb">
 												<?php the_post_thumbnail();?>
 											</div>
 									</div>

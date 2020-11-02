@@ -29,14 +29,14 @@ class VideoBox extends Widget_Base{
 
         $this->start_controls_section(
             'youtube_section', [
-                'label' => __( 'Youtube', 'itsoft' ),
+                'label' => __( 'Youtube', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 	        $this->add_control(
 	        	'youtube_video_url',
 					[
-						'label' => __( 'Video URL', 'itsoft' ),
+						'label' => __( 'Video URL', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::URL,
 						'label_block' => true,
                         'default' => [
@@ -47,7 +47,7 @@ class VideoBox extends Widget_Base{
 	        $this->add_control(
 	        	'youtube_video_icon',
 					[
-						'label' => __( 'Video Icon', 'itsoft' ),
+						'label' => __( 'Video Icon', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::ICONS,
 						'default' => [
 							'value' => 'fas fa-play',
@@ -58,14 +58,14 @@ class VideoBox extends Widget_Base{
 
         $this->start_controls_section(
             'vimeo_section', [
-                'label' => __( 'Vimeo', 'itsoft' ),
+                'label' => __( 'Vimeo', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 	        $this->add_control(
 	        	'vimeo_video_url',
 					[
-						'label' => __( 'Video URL', 'itsoft' ),
+						'label' => __( 'Video URL', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::URL,
 						'label_block' => true,
 					]
@@ -73,7 +73,7 @@ class VideoBox extends Widget_Base{
 	        $this->add_control(
 	        	'vimeo_video_icon',
 					[
-						'label' => __( 'Video Icon', 'itsoft' ),
+						'label' => __( 'Video Icon', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::ICONS,
 						'default' => [
 							'value' => 'fas fa-play',
@@ -84,14 +84,17 @@ class VideoBox extends Widget_Base{
 
         $this->start_controls_section(
             'background_section', [
-                'label' => __( 'Background', 'itsoft' ),
+                'label' => __( 'Background', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                	'select_style' => 'one'
+                ]
             ]
         );
 			$this->add_control(
 				'background_image',
 				[
-					'label' => __( 'Choose Image', 'itsoft' ),
+					'label' => __( 'Choose Image', 'dreamit-elementor-extension' ),
 					'type' => Controls_Manager::MEDIA,
 					'default' => [
 						'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -125,6 +128,34 @@ Style Tab
 					],
 					'default' => 'one',
 					
+				]
+			);
+			$this->add_responsive_control(
+				'icon_align',
+				[
+					'label' => __( 'Alignment', 'dreamit-elementor-extension' ),
+					'type' => Controls_Manager::CHOOSE,
+					'options' => [
+						'left' => [
+							'title' => __( 'Left', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-left',
+						],
+						'center' => [
+							'title' => __( 'Center', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-center',
+						],
+						'right' => [
+							'title' => __( 'Right', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-right',
+						],
+						'justify' => [
+							'title' => __( 'Justified', 'dreamit-elementor-extension' ),
+							'icon' => 'eicon-text-align-justify',
+						],
+					],
+					'selectors' => [
+						'{{WRAPPER}} .single-video' => 'text-align: {{VALUE}};',
+					],
 				]
 			);
 		$this->end_controls_section();
@@ -222,7 +253,7 @@ Style Tab
 
 			<?php if($settings['select_style']=='one'){ ?>
 
-			<div id="parallax-video" class="single-video">
+			<div id="parallax-video" class="single-video style-one">
 			
 				<?php if( !empty($settings['background_image']['url']) ){ ?>
 				<div class="em-video-image">	

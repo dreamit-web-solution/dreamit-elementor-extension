@@ -403,7 +403,19 @@ Style Tab
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
-
+            $this->add_control(
+                'select_style',
+                [
+                    'label' => __( 'Select Style', 'dreamit-elementor-extension' ),
+                    'type' => \Elementor\Controls_Manager::SELECT,
+                    'options' => [
+                        'one' => __( 'One', 'dreamit-elementor-extension' ),
+                        'two' => __( 'Two', 'dreamit-elementor-extension' ),
+                    ],
+                    'default' => 'one',
+                    
+                ]
+            );
             $this->add_control(
                 'flip_position',
                 [
@@ -570,16 +582,6 @@ Style Tab
                 ]
             );
 
-            $this->add_group_control(
-                \Elementor\Group_Control_Background::get_type(),
-                [
-                    'name' => 'front_part_bg',
-                    'label' => esc_html__( 'Background', 'dreamit-elementor-extension' ),
-                    'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .front-part::before',
-                ]
-            );
-
             $this->add_control(
                 'front_part_icon_style',
                 [
@@ -717,7 +719,7 @@ Style Tab
                     'label' => esc_html__( 'Icon Color', 'dreamit-elementor-extension' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .front-part .front-content-part .front-icon-part .front-icon' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .front-part .front-content-part .front-icon-part .front-icon i' => 'color: {{VALUE}};',
                     ],
                     'condition' => [
                       'front_icon_type' => 'icon'
@@ -731,7 +733,7 @@ Style Tab
                     'name' => 'front_part_icon_bg',
                     'label' => esc_html__( 'Background', 'dreamit-elementor-extension' ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .front-part .front-content-part .front-icon-part .front-icon',
+                    'selector' => '{{WRAPPER}} .front-part .front-content-part .front-icon-part .front-icon i',
                     'condition' => [
                       'front_icon_type' => 'icon'
                     ],
@@ -1626,6 +1628,7 @@ Style Tab
         ?>
             
 
+        <?php if($settings['select_style']=='one'){ ?>
 
         <div class="flip-box">
             <div class="flip-box-inner <?php echo esc_attr($settings['flip_position']);?>">
@@ -1717,6 +1720,103 @@ Style Tab
                 </div><!-- .flip-box-wrap -->
             </div><!-- .flip-box-inner -->
         </div><!-- .flip-box -->
+
+        <?php }elseif($settings['select_style']=='two'){ ?>
+
+
+        <div class="flip-box style-two">
+            <div class="flip-box-inner <?php echo esc_attr($settings['flip_position']);?>">
+                <div class="flip-box-wrap">
+                    <div class="front-part">
+                        <div class="front-content-part">
+                            <?php if( !empty($settings['front_icon']) || !empty($settings['front_image']['url'])){?>
+                                <div class="front-icon-part">
+                                    <?php if(!empty($settings['front_icon'])) : ?>
+                                        <span class="front-icon"><i class="<?php echo esc_attr($settings['front_icon']);?>"></i></span>
+                                    <?php endif; ?>
+                                    <?php if(!empty($settings['front_image'])) : ?>
+                                        <span class="front-img">
+                                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'front_image_thumbnail', 'front_image' ); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php }?>
+
+                            <?php if(!empty($settings['front_title'])) { ?>
+                                <div class="front-title-part">
+                                    <h2 class="front-title"><?php echo esc_attr($settings['front_title']);?></h2>                                
+                                </div>
+                            <?php } ?>
+
+                            <?php if(!empty($settings['front_desc'])) : ?>
+                                <div class="front-desc-part">
+                                    <p class="front-desc"><?php echo esc_attr($settings['front_desc']);?></p>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if(!empty($settings['front_btn_text'])) : ?>
+                                <div class="front-btn-part">
+                                    <a class="front-btn <?php echo esc_attr($settings['front_btn_icon_position']);?>" href="<?php echo esc_url($settings['front_btn_link']['url']);?>">
+                                        <span class="front-btn-txt"><?php echo esc_attr($settings['front_btn_text']);?></span>
+                                        <?php if(!empty($settings['front_btn_icon'])) : ?>
+                                            <i class="<?php echo esc_attr($settings['front_btn_icon']);?>"></i>
+                                        <?php endif; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
+                    </div><!-- .front-part -->
+
+                    <div class="back-part">
+                        <div class="back-background-overlay"></div>
+                        <div class="back-content-part">
+                            <?php if( !empty($settings['back_icon']) || !empty($settings['back_image']['url'])){?>
+                                <div class="back-icon-part">
+                                    <?php if(!empty($settings['back_icon'])) : ?>
+                                        <span class="back-icon"><i class="<?php echo esc_attr($settings['back_icon']);?>"></i></span>
+                                    <?php endif; ?>
+                                    <?php if(!empty($settings['back_image'])) : ?>
+                                        <span class="back-img">
+                                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'back_image_thumbnail', 'back_image' ); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php }?>
+
+                            <?php if(!empty($settings['back_title'])) { ?>
+                                <div class="back-title-part">
+                                    
+                                    <h2 class="back-title"><?php echo esc_attr($settings['back_title']);?></h2>
+                                    
+                                </div>
+                            <?php } ?>
+
+                            <?php if(!empty($settings['back_desc'])) : ?>
+                                <div class="back-desc-part">
+                                    <p class="back-desc"><?php echo esc_attr($settings['back_desc']);?></p>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if(!empty($settings['back_btn_text'])) : ?>
+                                <div class="back-btn-part">
+                                    <a class="back-btn <?php echo esc_attr( $settings['back_btn_icon_position'] );?>" href="<?php echo esc_url($settings['back_btn_link']['url']);?>">
+                                        <span class="back-btn-txt"><?php echo esc_attr($settings['back_btn_text']);?></span>
+                                        <?php if(!empty($settings['back_btn_icon'])) : ?>
+                                            <i class="<?php echo esc_attr($settings['back_btn_icon']);?>"></i>
+                                        <?php endif; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        
+                    </div><!-- .back-part -->
+                </div><!-- .flip-box-wrap -->
+            </div><!-- .flip-box-inner -->
+        </div><!-- .flip-box -->
+
+        <?php } ?>
+
 
         <?php
     }
