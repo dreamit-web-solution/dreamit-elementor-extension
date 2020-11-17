@@ -33,35 +33,37 @@ class SlickSlider extends Widget_Base{
 		
 		$this->start_controls_section(
 			'slider', [
-				'label' => __( 'Slider', 'techno' ),
+				'label' => __( 'Slider', 'dreamit-elementor-extension' ),
 			]
 		);
 		$this->add_control(
 			'slides', [
-				'label' => __( 'Slide items', 'techno' ),
+				'label' => __( 'Slide items', 'dreamit-elementor-extension' ),
 				'type' => Controls_Manager::REPEATER,
 				'title_field' => '{{{ subtitle }}}',
 				'fields' => [
                     [
                         'name' => 'slider_style',
-                        'label' => __( 'Slider style', 'techno' ),
+                        'label' => __( 'Slider style', 'dreamit-elementor-extension' ),
                         'type' => Controls_Manager::SELECT,
                         'options' => [
-                            'style_01' => esc_html__('Style one', 'techno'),
-                            'style_02' => esc_html__('Style two', 'techno'),
-                            'style_03' => esc_html__('Style three', 'techno'),
+                            'style_01' => esc_html__('Style one', 'dreamit-elementor-extension'),
+                            'style_02' => esc_html__('Style two', 'dreamit-elementor-extension'),
+                            'style_03' => esc_html__('Style three', 'dreamit-elementor-extension'),
+                            'style_04' => esc_html__('Style four', 'dreamit-elementor-extension'),
+                            'style_05' => esc_html__('Style five', 'dreamit-elementor-extension'),
                         ],
                         'default' => 'style_01'
                     ],
 
                     [
                         'name' => 'content_position',
-                        'label' => __( 'Select Text Position', 'techno' ),
+                        'label' => __( 'Select Text Position', 'dreamit-elementor-extension' ),
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'options' => [
-                            'text-left' => __( 'Text Left', 'techno' ),
-                            'text-center' => __( 'Text Center', 'techno' ),
-                            'text-right' => __( 'Text Right', 'techno' ),
+                            'text-left' => __( 'Text Left', 'dreamit-elementor-extension' ),
+                            'text-center' => __( 'Text Center', 'dreamit-elementor-extension' ),
+                            'text-right' => __( 'Text Right', 'dreamit-elementor-extension' ),
                         ],
                         'default' => 'text-left',
                         
@@ -69,7 +71,7 @@ class SlickSlider extends Widget_Base{
 
 					[
 						'name' => 'subtitle',
-						'label' => __( 'Subtitle', 'techno' ),
+						'label' => __( 'Subtitle', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::TEXT,
 						'label_block' => true,
 						'default' => 'Welcome to techno'
@@ -77,7 +79,7 @@ class SlickSlider extends Widget_Base{
 
 					[
 						'name' => 'title',
-						'label' => __( 'Title', 'techno' ),
+						'label' => __( 'Title', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::TEXT,
 						'label_block' => true,
 						'default' => 'We are a creative <br>Design Agency',
@@ -85,22 +87,22 @@ class SlickSlider extends Widget_Base{
 
                     [
                         'name' => 'description',
-                        'label' => __( 'Description', 'techno' ),
+                        'label' => __( 'Description', 'dreamit-elementor-extension' ),
                         'type' => Controls_Manager::TEXTAREA,
                         'default' => 'Pellentesque at posuere tellus phasellus scelerisque porem.',
                     ],
 
 					[
 						'name' => 'btn1',
-						'label' => __( 'Button 1', 'techno' ),
+						'label' => __( 'Button 1', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::TEXT,
 						'label_block' => true,
-						'placeholder' => __( 'Enter Button Name', 'techno' ),
+						'placeholder' => __( 'Enter Button Name', 'dreamit-elementor-extension' ),
 						'default' => 'Get Started'
 					],
 					[
 						'name' => 'btn1_url',
-						'label' => __( 'Button URL', 'techno' ),
+						'label' => __( 'Button URL', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::URL,
 						'label_block' => true,
                         'default' => [
@@ -110,15 +112,15 @@ class SlickSlider extends Widget_Base{
 
 					[
 						'name' => 'btn2',
-						'label' => __( 'Button 2', 'techno' ),
+						'label' => __( 'Button 2', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::TEXT,
 						'label_block' => true,
-						'placeholder' => __( 'Enter Button Name', 'techno' ),
+						'placeholder' => __( 'Enter Button Name', 'dreamit-elementor-extension' ),
 						'default' => ''
 					],
 					[
 						'name' => 'btn2_url',
-						'label' => __( 'Button URL', 'techno' ),
+						'label' => __( 'Button URL', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::URL,
 						'label_block' => true,
                         'default' => [
@@ -128,7 +130,7 @@ class SlickSlider extends Widget_Base{
 
 					[
 						'name' => 'video_url',
-						'label' => __( 'Video URL', 'techno' ),
+						'label' => __( 'Video URL', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::URL,
 						'label_block' => true,
                         'default' => [
@@ -147,14 +149,14 @@ class SlickSlider extends Widget_Base{
 
 					[
 						'name' => 'single_image',
-						'label' => __( 'Choose Single Image', 'techno' ),
+						'label' => __( 'Choose Single Image', 'dreamit-elementor-extension' ),
 						'type' => \Elementor\Controls_Manager::MEDIA,
 					],
 
 
 					[
 						'name' => 'bg_image',
-						'label' => __( 'Background image', 'techno' ),
+						'label' => __( 'Background image', 'dreamit-elementor-extension' ),
 						'type' => Controls_Manager::MEDIA,
 					],
 				],
@@ -167,17 +169,46 @@ class SlickSlider extends Widget_Base{
  * Style Tab
  */
 
+        $this->start_controls_section(
+            'general_section', [
+                'label' => __( 'General', 'dreamit-elementor-extension' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+            $this->add_responsive_control(
+                'slider_height',
+                [
+                    'label' => __( 'Slider Height', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1500,
+                            'step' => 1,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .dreamit-slick-slider .single-slick' => 'min-height: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+        $this->end_controls_section();
 
         //------------------------------ Style Title ------------------------------
         $this->start_controls_section(
             'style_title', [
-                'label' => __( 'Title', 'techno' ),
+                'label' => __( 'Title', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'color_title', [
-                'label' => __( 'Text Color', 'techno' ),
+                'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hero-text h1' => 'color: {{VALUE}};',
@@ -199,13 +230,13 @@ class SlickSlider extends Widget_Base{
         //------------------------------ Style subtitle ------------------------------
         $this->start_controls_section(
             'style_subtitle', [
-                'label' => __( 'Subtitle', 'techno' ),
+                'label' => __( 'Subtitle', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'color_subtitle', [
-                'label' => __( 'Text Color', 'techno' ),
+                'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hero-text h4' => 'color: {{VALUE}};',
@@ -235,13 +266,13 @@ class SlickSlider extends Widget_Base{
         //------------------------------ Style Description ------------------------------
         $this->start_controls_section(
             'style_description', [
-                'label' => __( 'Description', 'techno' ),
+                'label' => __( 'Description', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'color_description', [
-                'label' => __( 'Text Color', 'techno' ),
+                'label' => __( 'Text Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .hero-text p' => 'color: {{VALUE}};',
@@ -660,7 +691,7 @@ class SlickSlider extends Widget_Base{
                                 </div>
                                 <div class="hero-text-wrap">
                                     <div class="hero-text">
-                                        <div class="container">
+                                        
                                             <div class="white-color">
                                                 <?php if(!empty($slide['subtitle'])) : ?> <h4> <?php echo esc_html_e($slide['subtitle']) ?> </h4> <?php endif; ?>
                                                 <?php if(!empty($slide['title'])) : ?> <h1 class="font-600"> <?php echo $slide['title']; ?> </h1> <?php endif; ?>
@@ -675,7 +706,7 @@ class SlickSlider extends Widget_Base{
                                                     <?php } ?>
 
                                                     <?php if( !empty($slide['btn2']) ){ ?>
-                                                    <a class="btn btn-gradient btn-md btn-animated-none" href="<?php echo esc_url($slide['btn2_url']['url']); ?>" target="_blank">
+                                                    <a class="btn btn-gradient btn-md btn-animated-none button-two" href="<?php echo esc_url($slide['btn2_url']['url']); ?>" target="_blank">
                                                             <?php echo $slide['btn2']; ?>
                                                         <i class="fa fa-angle-right"></i>
                                                     </a>
@@ -690,7 +721,7 @@ class SlickSlider extends Widget_Base{
                                                     <?php } ?>
 
                                             </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="slider-single-image">
@@ -713,7 +744,6 @@ class SlickSlider extends Widget_Base{
                                 </div>
                                 <div class="hero-text-wrap">
                                     <div class="hero-text">
-                                        <div class="container">
 
                                             <div class="white-color">
                                                 <?php if(!empty($slide['subtitle'])) : ?> <h4> <?php echo esc_html_e($slide['subtitle']) ?> </h4> <?php endif; ?>
@@ -736,7 +766,7 @@ class SlickSlider extends Widget_Base{
                                                     <?php } ?>
 
                                             </div>
-                                        </div>
+                                        
                                         <?php if( !empty($slide['video_url']['url']) ){ ?>
                                             <div class="slider-video-icon">
                                                 <a href="<?php echo esc_url($slide['video_url']['url']); ?>" class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true">
@@ -757,7 +787,7 @@ class SlickSlider extends Widget_Base{
                                 </div>
                                 <div class="hero-text-wrap">
                                     <div class="hero-text">
-                                        <div class="container">
+                                        
                                             <div class="white-color">
                                                 <?php if(!empty($slide['subtitle'])) : ?> <h5> <?php echo esc_html_e($slide['subtitle']) ?> </h5> <?php endif; ?>
                                                 <?php if(!empty($slide['title'])) : ?> <h1 class="font-600"> <?php echo $slide['title']; ?> </h1> <?php endif; ?>
@@ -769,10 +799,114 @@ class SlickSlider extends Widget_Base{
                                                     </p>
                                                 <?php endif; ?>
                                             </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                         </div><!-- .single-slick -->
+
+                        <?php }elseif($slide['slider_style']=='style_04'){ ?>
+
+                        <div class="single-slick style-four align-items-center d-flex <?php echo $slide['content_position'] ?>">
+                            <div class="container">
+                                <div class="slide-img parallax-effect"
+                                    <?php if(!empty($slide['bg_image']['url'])) : ?> style="background:url(<?php echo esc_url($slide['bg_image']['url']) ?>) center center / cover scroll no-repeat;" <?php endif; ?>>
+                                </div>
+                                <div class="hero-text-wrap">
+                                    <div class="hero-text">
+                                        
+                                            <div class="white-color">
+                                                <?php if(!empty($slide['subtitle'])) : ?> <h4> <?php echo esc_html_e($slide['subtitle']) ?> </h4> <?php endif; ?>
+                                                <?php if(!empty($slide['title'])) : ?> <h1 class="font-600"> <?php echo $slide['title']; ?> </h1> <?php endif; ?>
+
+                                                    <p><?php echo $slide['description']; ?></p>
+
+                                                    <?php if( !empty($slide['btn1']) ){ ?>
+                                                    <a class="btn btn-gradient btn-md btn-animated-none" href="<?php echo esc_url($slide['btn1_url']['url']); ?>" target="_blank">
+                                                            <?php echo $slide['btn1']; ?>
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                    <?php } ?>
+
+                                                    <?php if( !empty($slide['btn2']) ){ ?>
+                                                    <a class="btn btn-gradient btn-md btn-animated-none button-two" href="<?php echo esc_url($slide['btn2_url']['url']); ?>" target="_blank">
+                                                            <?php echo $slide['btn2']; ?>
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                    <?php } ?>
+
+                                                    <?php if( !empty($slide['video_url']['url']) ){ ?>
+                                                    <div class="slider-video-icon">
+                                                        <a href="<?php echo esc_url($slide['video_url']['url']); ?>" class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true">
+                                                            <i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+                                                        </a>
+                                                    </div>
+                                                    <?php } ?>
+
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="slider-single-image">
+                                    <img src="<?php echo $slide['single_image']['url']; ?>" alt="">
+                                </div>
+                            </div><!-- .container -->
+
+                            <div class="slider_circle_img rotateme">
+                                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/dot-circle.png'; ?>" alt="circle-image">
+                            </div>
+
+                        </div><!-- .single-slick -->
+
+                        <?php }elseif($slide['slider_style']=='style_05'){ ?>
+
+                        <div class="single-slick one align-items-center d-flex <?php echo $slide['content_position'] ?>">
+                            <div class="container">
+                                <div class="slide-img parallax-effect"
+                                    <?php if(!empty($slide['bg_image']['url'])) : ?> style="background:url(<?php echo esc_url($slide['bg_image']['url']) ?>) center center / cover scroll no-repeat;" <?php endif; ?>>
+                                </div>
+                                <div class="hero-text-wrap">
+                                    <div class="hero-text">
+                                        
+                                            <div class="white-color">
+                                                <?php if(!empty($slide['subtitle'])) : ?> <h4> <?php echo esc_html_e($slide['subtitle']) ?> </h4> <?php endif; ?>
+                                                <?php if(!empty($slide['title'])) : ?> <h1 class="font-600"> <?php echo $slide['title']; ?> </h1> <?php endif; ?>
+
+                                                    <p><?php echo $slide['description']; ?></p>
+
+                                                    <?php if( !empty($slide['btn1']) ){ ?>
+                                                    <a class="btn btn-gradient btn-md btn-animated-none" href="<?php echo esc_url($slide['btn1_url']['url']); ?>" target="_blank">
+                                                            <?php echo $slide['btn1']; ?>
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                    <?php } ?>
+
+                                                    <?php if( !empty($slide['btn2']) ){ ?>
+                                                    <a class="btn btn-gradient btn-md btn-animated-none button-two" href="<?php echo esc_url($slide['btn2_url']['url']); ?>" target="_blank">
+                                                            <?php echo $slide['btn2']; ?>
+                                                        <i class="fa fa-angle-right"></i>
+                                                    </a>
+                                                    <?php } ?>
+
+                                                    <?php if( !empty($slide['video_url']['url']) ){ ?>
+                                                    <div class="slider-video-icon">
+                                                        <a href="<?php echo esc_url($slide['video_url']['url']); ?>" class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true">
+                                                            <i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i>
+                                                        </a>
+                                                    </div>
+                                                    <?php } ?>
+
+                                            </div>
+
+                                    </div>
+                                </div>
+
+                            </div><!-- .container -->
+
+                            <div class="bottom-img">
+                                <img src="https://webitkurigram.com/wp/techno/wp-content/themes/techno/assets/images/wave-shap.svg" alt="">
+                            </div>
+                        </div><!-- .single-slick -->
+
                         <?php } ?>
 
                     <?php }} ?>

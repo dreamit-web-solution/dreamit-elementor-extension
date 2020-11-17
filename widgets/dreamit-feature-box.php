@@ -125,6 +125,14 @@ class FeatureBox extends Widget_Base{
 				]
 			);
 			$this->add_control(
+				'button_url',
+				[
+					'label' => __( 'Button URL', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::URL,
+					'placeholder' => __( 'https://your-link.com', 'dreamit-elementor-extension' ),
+				]
+			);
+			$this->add_control(
 				'show_button',
 				[
 					'label' => __( 'Show Button', 'dreamit-elementor-extension' ),
@@ -168,6 +176,7 @@ Style Tab
 						'two' => __( 'Two', 'dreamit-elementor-extension' ),
 						'three' => __( 'Three', 'dreamit-elementor-extension' ),
 						'four' => __( 'Four', 'dreamit-elementor-extension' ),
+						'five' => __( 'Five', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
@@ -447,6 +456,13 @@ Style Tab
 			]
 		);
 
+			$this->add_control(
+				'css_class',
+				[
+					'label' => __( 'CSS Class', 'dreamit-elementor-extension' ),
+					'type' => \Elementor\Controls_Manager::TEXT,
+				]
+			);
 			$this->start_controls_tabs(
 				'box_style_tabs'
 			);
@@ -697,7 +713,7 @@ Style Tab
 				
 				<div class="feature-box-thumb">
 					<img src="<?php echo $settings['single_image']['url']; ?>" alt="">
-				</div>		
+				</div>
 				
 				<div class="feature-box-content">
 
@@ -717,7 +733,37 @@ Style Tab
 					<div class="feature-btn">
 						<a href="#">
 						<?php echo $settings['button_text']; ?>
-						<i class="<?php echo esc_attr($settings['button_icon']); ?>"></i>
+						<?php \Elementor\Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+						</a>
+					</div>
+					<?php } ?>
+
+				</div>
+			</div>
+
+		<?php }elseif($settings['select_style']=='five'){ ?>
+
+			<div class="feature-box style-five <?php echo $settings['css_class']; ?>">
+				
+				<div class="feature-box-icon">
+					<span><i <?php echo $this->get_render_attribute_string( 'i' ); ?>></i></span>
+				</div>			
+				
+				<div class="feature-box-content">
+
+					<div class="feature-box-title">
+						<h2><?php echo $settings['title_text']; ?></h2>
+					</div>
+
+					<div class="feature-box-desc">
+						<p><?php echo $settings['description_text']; ?></p>
+					</div>
+
+					<?php if($settings['show_button']=='yes'){ ?>
+					<div class="feature-btn">
+						<a href="<?php echo esc_url($settings['button_url']['url']); ?>">
+						<?php echo $settings['button_text']; ?>
+						<?php \Elementor\Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 						</a>
 					</div>
 					<?php } ?>

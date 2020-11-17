@@ -37,7 +37,7 @@ class Team extends Widget_Base{
 
 
 
-		//$category_dropdown = array( '0' => __('Select Category', 'rsaddon' ) );	
+		//$category_dropdown = array( '0' => __('Select Category', 'dreamit-elementor-extension' ) );	
 
 		$category_dropdown[0] = 'Select Category';
 		
@@ -50,21 +50,8 @@ class Team extends Widget_Base{
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Content', 'rsaddon' ),
+				'label' => esc_html__( 'Content', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'team_grid_source',
-			[
-				'label'   => __( 'Select Team Type', 'rsaddon' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'custom',				
-				'options' => [
-					'custom' => esc_html__('Custom', 'rsaddon'),
-					'dynamic' => esc_html__('Dynamic', 'rsaddon')					
-				],											
 			]
 		);
 
@@ -72,16 +59,16 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'team_grid_style',
 			[
-				'label'   => __( 'Select Style', 'rsaddon' ),
+				'label'   => __( 'Select Style', 'dreamit-elementor-extension' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'style1',				
 				'options' => [
-					'style1' => esc_html__('Style 1', 'rsaddon'),
-					'style2' => esc_html__('Style 2', 'rsaddon'),
-					'style3' => esc_html__('Style 3', 'rsaddon'),
-					'style4' => esc_html__('Style 4', 'rsaddon'),
-					'style5' => esc_html__('Style 5', 'rsaddon'),
-					'style6' => esc_html__('Style 6', 'rsaddon'),
+					'style1' => esc_html__('Style 1', 'dreamit-elementor-extension'),
+					'style2' => esc_html__('Style 2', 'dreamit-elementor-extension'),
+					'style3' => esc_html__('Style 3', 'dreamit-elementor-extension'),
+					'style4' => esc_html__('Style 4', 'dreamit-elementor-extension'),
+					'style5' => esc_html__('Style 5', 'dreamit-elementor-extension'),
+					'style6' => esc_html__('Style 6', 'dreamit-elementor-extension'),
 				],
 				'separator' => 'before',										
 			]
@@ -91,7 +78,7 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'team_category',
 			[
-				'label'   => esc_html__( 'Category', 'rsaddon' ),
+				'label'   => esc_html__( 'Category', 'dreamit-elementor-extension' ),
 				'type'    => Controls_Manager::SELECT2,	
 				'default' => 0,			
 				'options' => [		
@@ -99,45 +86,35 @@ class Team extends Widget_Base{
 				]+ $category_dropdown,
 				'multiple' => true,	
 				'separator' => 'before',
-				'condition' => [
-					'team_grid_source' => 'dynamic',
-				],	
 			]
 
 		);
 
-		
 
 		$this->add_control(
 			'per_page',
 			[
-				'label' => esc_html__( 'Team Show Per Page', 'rsaddon' ),
+				'label' => esc_html__( 'Team Show Per Page', 'dreamit-elementor-extension' ),
 				'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'example 3', 'rsaddon' ),
+				'placeholder' => esc_html__( 'example 3', 'dreamit-elementor-extension' ),
 				'separator' => 'before',
-				'condition' => [
-					'team_grid_source' => 'dynamic',
-				],
 			]
 		);
 	
 		$this->add_control(
 			'team_columns',
 			[
-				'label'   => esc_html__( 'Columns', 'rsaddon' ),
+				'label'   => esc_html__( 'Columns', 'dreamit-elementor-extension' ),
 				'type'    => Controls_Manager::SELECT,	
 				'default' => 4,			
 				'options' => [
-					'6' => esc_html__( '2 Column', 'rsaddon' ),
-					'4' => esc_html__( '3 Column', 'rsaddon' ),
-					'3' => esc_html__( '4 Column', 'rsaddon' ),
-					'2' => esc_html__( '6 Column', 'rsaddon' ),
-					'12' => esc_html__( '1 Column', 'rsaddon' ),					
+					'6' => esc_html__( '2 Column', 'dreamit-elementor-extension' ),
+					'4' => esc_html__( '3 Column', 'dreamit-elementor-extension' ),
+					'3' => esc_html__( '4 Column', 'dreamit-elementor-extension' ),
+					'2' => esc_html__( '6 Column', 'dreamit-elementor-extension' ),
+					'12' => esc_html__( '1 Column', 'dreamit-elementor-extension' ),					
 				],
 				'separator' => 'before',
-				'condition' => [
-					'team_grid_source' => 'dynamic',
-				],
 							
 			]
 		);
@@ -145,16 +122,13 @@ class Team extends Widget_Base{
 		$this->add_control(
 			'memeber_image',
 			[
-				'label' => esc_html__( 'Member Image', 'rsaddon' ),
+				'label' => esc_html__( 'Member Image', 'dreamit-elementor-extension' ),
 				'type'  => Controls_Manager::MEDIA,
 				
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
                 ],
 				'separator' => 'before',
-				'condition' => [
-					'team_grid_source' => 'custom',
-				],
 			]
 		);
 
@@ -168,9 +142,6 @@ class Team extends Widget_Base{
                     'custom'
                 ],
                 'separator' => 'before',
-                'condition' => [
-					'team_grid_source' => 'dynamic',
-				],
             ]
         ); 
 
@@ -178,14 +149,11 @@ class Team extends Widget_Base{
           $this->add_control(
             'title',
             [
-                'label' => esc_html__( 'Name', 'rsaddon' ),                
+                'label' => esc_html__( 'Name', 'dreamit-elementor-extension' ),                
                 'type' => Controls_Manager::TEXT,
                 'default' => 'Elements Name',
-                'placeholder' => esc_html__( 'Type Member Name', 'rsaddon' ),
+                'placeholder' => esc_html__( 'Type Member Name', 'dreamit-elementor-extension' ),
                 'separator' => 'before',
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
 			]
 
         );
@@ -193,66 +161,51 @@ class Team extends Widget_Base{
         $this->add_control(
             'designation',
             [
-                'label' => __( 'Designation', 'rsaddon' ),               
+                'label' => __( 'Designation', 'dreamit-elementor-extension' ),               
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Web Developer', 'rsaddon' ),
+                'default' => __( 'Web Developer', 'dreamit-elementor-extension' ),
                 'separator' => 'before',
-                'placeholder' => __( 'Type Member Designation', 'rsaddon' ),
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
+                'placeholder' => __( 'Type Member Designation', 'dreamit-elementor-extension' ),
             ]
         );
         $this->add_control(
             'phone',
             [
-                'label' => __( 'Phone', 'rsaddon' ),               
+                'label' => __( 'Phone', 'dreamit-elementor-extension' ),               
                 'type' => Controls_Manager::TEXT,                
-                'separator' => 'before',                
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
+                'separator' => 'before',
             ]
         );
         $this->add_control(
             'email',
             [
-                'label' => __( 'Email Address', 'rsaddon' ),                
+                'label' => __( 'Email Address', 'dreamit-elementor-extension' ),                
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => __( 'Enter Email Address', 'rsaddon' ),
-                'separator' => 'before',               
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
+                'placeholder' => __( 'Enter Email Address', 'dreamit-elementor-extension' ),
+                'separator' => 'before',
             ]
         );
 
         $this->add_control(
             'bio',
             [
-                'label' => __( 'Short Bio', 'rsaddon' ),                
+                'label' => __( 'Short Bio', 'dreamit-elementor-extension' ),                
                 'type' => Controls_Manager::TEXTAREA,
-                'placeholder' => __( '', 'rsaddon' ),
+                'placeholder' => __( '', 'dreamit-elementor-extension' ),
                 'rows' => 5,
                 'separator' => 'before',
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
             ]
         );
 
         $this->add_control(
             'popup_description',
             [
-                'label' => __( 'Description', 'rsaddon' ),                
+                'label' => __( 'Description', 'dreamit-elementor-extension' ),                
                 'type' => Controls_Manager::TEXTAREA,
                 'default' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here.',
-                'placeholder' => __( '', 'rsaddon' ),
+                'placeholder' => __( '', 'dreamit-elementor-extension' ),
                 'rows' => 10,
                 'separator' => 'before',
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
             ]
         );
  		
@@ -260,17 +213,14 @@ class Team extends Widget_Base{
         $this->add_control(
 			'team_grid_popup',
 			[
-				'label'   => esc_html__( 'Show Popup', 'rsaddon' ),
+				'label'   => esc_html__( 'Show Popup', 'dreamit-elementor-extension' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'popup',				
 				'options' => [
 					'popup'   => 'Popup Style',
 					'default' => 'Default Style'				
 				],
-				'separator' => 'before',
-				'condition' => [
-					'team_grid_source' => 'dynamic',
-				],											
+				'separator' => 'before',									
 			]
 		);   
 
@@ -280,11 +230,8 @@ class Team extends Widget_Base{
         $this->start_controls_section(
             '_section_social',
             [
-                'label' => __( 'Social Profiles', 'rsaddon' ),
+                'label' => __( 'Social Profiles', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
-                'condition' => [
-					'team_grid_source' => 'custom',
-				],
             ]
         );
 
@@ -294,7 +241,7 @@ class Team extends Widget_Base{
  		$repeater->add_control(
  		    'link',
  		    [
- 		        'label' => esc_html__('Enter Link', 'rsaddon'),
+ 		        'label' => esc_html__('Enter Link', 'dreamit-elementor-extension'),
  		        'type' => Controls_Manager::URL,                
  		    ]
  		);
@@ -303,7 +250,7 @@ class Team extends Widget_Base{
  		$repeater->add_control(
  		    'social_profile',
  		    [
- 		        'label' => esc_html__('Select Social Profile Name', 'rsaddon'),
+ 		        'label' => esc_html__('Select Social Profile Name', 'dreamit-elementor-extension'),
  		        'type' => Controls_Manager::ICON, 		       
  		        'label_block' => true,
  		        'separator'   => 'before',
@@ -340,7 +287,7 @@ class Team extends Widget_Base{
         $this->add_control(
 			'image_spacing_custom',
 			[
-				'label'      => esc_html__( 'Item Bottom Gap', 'rsaddon' ),
+				'label'      => esc_html__( 'Item Bottom Gap', 'dreamit-elementor-extension' ),
 				'type'       => Controls_Manager::SLIDER,
 				'show_label' => true,
 				'separator'  => 'before',
@@ -357,21 +304,15 @@ class Team extends Widget_Base{
                     '{{WRAPPER}} .team-item-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .team-inner-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
-                'condition' => [
-					'team_grid_source' => 'dynamic',
-				],
 			]
-		);  
-
-
-		
+		);
 				
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_slider_style',
 			[
-				'label' => esc_html__( 'Team Style', 'rsaddon' ),
+				'label' => esc_html__( 'Team Style', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -381,7 +322,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'title_color',
             [
-                'label' => esc_html__( 'Title Color', 'rsaddon' ),
+                'label' => esc_html__( 'Title Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-grid-style1 .team-item .team-content h3.team-name a' => 'color: {{VALUE}};',
@@ -390,6 +331,7 @@ class Team extends Widget_Base{
                     '{{WRAPPER}} .team-grid-style3 .team-img .team-img-sec .team-content .team-name a' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .team-grid-style4 .team-item .team-content .team-name a' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .team-grid-style5 .team-inner-wrap .team-content .member-desc .team-name a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .team-member-content h2' => 'color: {{VALUE}};',
 
                 ],                
             ]
@@ -400,7 +342,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'title_color_hover',
             [
-                'label' => esc_html__( 'Title Hover Color', 'rsaddon' ),
+                'label' => esc_html__( 'Title Hover Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-grid-style1 .team-item .team-content h3.team-name a:hover' => 'color: {{VALUE}};',
@@ -409,6 +351,7 @@ class Team extends Widget_Base{
                     '{{WRAPPER}} .team-grid-style3 .team-img .team-img-sec .team-content .team-name a:hover' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .team-grid-style4 .team-item .team-content .team-name a:hover' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .team-grid-style5 .team-inner-wrap:hover .team-content .member-desc .team-name a:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .team-member-area.team-style-two .team-member-content h2:hover' => 'color: {{VALUE}};',
                 ],                
             ]
 
@@ -426,7 +369,8 @@ class Team extends Widget_Base{
                     '{{WRAPPER}} .team-grid-style6 .team-item .team-content h3.team-name a',
                     '{{WRAPPER}} .team-grid-style2 .team-item-wrap .team-img .team-content .team-name a',
                     '{{WRAPPER}} .team-grid-style4 .team-item .team-content .team-name a',
-                    '{{WRAPPER}} .team-grid-style5 .team-inner-wrap .team-content .member-desc .team-name a'
+                    '{{WRAPPER}} .team-grid-style5 .team-inner-wrap .team-content .member-desc .team-name a',
+                    '{{WRAPPER}} .team-member-content h2',
 			]
 		);
 
@@ -434,12 +378,12 @@ class Team extends Widget_Base{
         $this->add_control(
             'designation_color',
             [
-                'label' => esc_html__( 'Designation Color', 'rsaddon' ),
+                'label' => esc_html__( 'Designation Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-content .team-title' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .team-grid-style4 .team-item .team-content .team-title' => 'color: {{VALUE}};',
-
+                    '{{WRAPPER}} .team-member-content h5' => 'color: {{VALUE}};',
                 ],                
             ]
         );
@@ -448,7 +392,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'content_hover_bg',
             [
-                'label' => esc_html__( 'Content Hover Background', 'rsaddon' ),
+                'label' => esc_html__( 'Content Hover Background', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style5',
@@ -464,7 +408,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'content_hover_text_color',
             [
-                'label' => esc_html__( 'Content Hover Text Color', 'rsaddon' ),
+                'label' => esc_html__( 'Content Hover Text Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style5',
@@ -482,7 +426,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'content_color',
             [
-                'label' => esc_html__( 'Content Color', 'rsaddon' ),
+                'label' => esc_html__( 'Content Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .team-item .team-content .team-text' => 'color: {{VALUE}};',
@@ -497,7 +441,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'content_top_border_color',
             [
-                'label' => esc_html__( 'Content Top Border Color', 'rsaddon' ),
+                'label' => esc_html__( 'Content Top Border Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style4',
@@ -513,7 +457,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'content_bottom_border_color',
             [
-                'label' => esc_html__( 'Content Bottom Border Color', 'rsaddon' ),
+                'label' => esc_html__( 'Content Bottom Border Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style5',
@@ -529,7 +473,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'image_overlay',
             [
-                'label' => esc_html__( 'Image Overlay', 'rsaddon' ),
+                'label' => esc_html__( 'Image Overlay', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style3',
@@ -545,7 +489,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'image_corner_border_color',
             [
-                'label' => esc_html__( 'Image Corner Border Color', 'rsaddon' ),
+                'label' => esc_html__( 'Image Corner Border Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style3',
@@ -562,7 +506,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'icon_section_bg',
             [
-                'label' => esc_html__( 'Icon Section Background', 'rsaddon' ),
+                'label' => esc_html__( 'Icon Section Background', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'condition' => [
                 	'team_grid_style' => 'style1',
@@ -578,7 +522,7 @@ class Team extends Widget_Base{
         $this->add_control(
 			'icon_font_size',
 			[
-				'label' => esc_html__( 'Icon Font Size', 'rsaddon' ),
+				'label' => esc_html__( 'Icon Font Size', 'dreamit-elementor-extension' ),
 				'type' => Controls_Manager::SLIDER,
 				'show_label' => true,
 				'range' => [
@@ -603,7 +547,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'icon_color',
             [
-                'label' => esc_html__( 'Icon Color', 'rsaddon' ),
+                'label' => esc_html__( 'Icon Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .social-icons1 a i' => 'color: {{VALUE}};',
@@ -618,7 +562,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'icon_color_hover',
             [
-                'label' => esc_html__( 'Icon Hover Color', 'rsaddon' ),
+                'label' => esc_html__( 'Icon Hover Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .social-icons1 a i:hover' => 'color: {{VALUE}};',
@@ -660,7 +604,7 @@ class Team extends Widget_Base{
 		$this->start_controls_section(
 			'section_popup_style',
 			[
-				'label' => esc_html__( 'Popup Style', 'rsaddon' ),
+				'label' => esc_html__( 'Popup Style', 'dreamit-elementor-extension' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'team_grid_popup' => 'popup',
@@ -671,7 +615,7 @@ class Team extends Widget_Base{
 		$this->add_control(
             'popup_title_color',
             [
-                'label' => esc_html__( 'Title Color', 'rsaddon' ),
+                'label' => esc_html__( 'Title Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,                              
             ]
         );
@@ -680,7 +624,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_designation_color',
             [
-                'label' => __( 'Designation Color', 'rsaddon' ),
+                'label' => __( 'Designation Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,              
             ]
         );
@@ -688,7 +632,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_content_color',
             [
-                'label' => __( 'Content Color', 'rsaddon' ),
+                'label' => __( 'Content Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,              
             ]
         );	
@@ -696,7 +640,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_phn_email_color',
             [
-                'label' => esc_html__( 'Phone and Email Color', 'rsaddon' ),
+                'label' => esc_html__( 'Phone and Email Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,              
             ]
         );		
@@ -704,7 +648,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_icon_color',
             [
-                'label' => esc_html__( 'Icon Color', 'rsaddon' ),
+                'label' => esc_html__( 'Icon Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'separator' => 'before',                
             ]
@@ -713,7 +657,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_icon_bg_color',
             [
-                'label' => esc_html__( 'Icon Background Color', 'rsaddon' ),
+                'label' => esc_html__( 'Icon Background Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'separator' => 'before',                
             ]
@@ -723,7 +667,7 @@ class Team extends Widget_Base{
         $this->add_control(
             'popup_background',
             [
-                'label' => esc_html__( 'Background Color', 'rsaddon' ),
+                'label' => esc_html__( 'Background Color', 'dreamit-elementor-extension' ),
                 'type' => Controls_Manager::COLOR,
                 'separator' => 'before',                
             ]
@@ -732,24 +676,7 @@ class Team extends Widget_Base{
 		$this->end_controls_section();
 
 
-
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -777,33 +704,10 @@ class Team extends Widget_Base{
 			$icon_style = 'style="background: '.$settings['popup_icon_bg_color'].'; color: '.$settings['popup_icon_color'].'"';				
 		}
 		
-		if($settings['team_grid_source'] == 'dynamic'){
+		?>
 
-			if('style1' == $settings['team_grid_style']){
-			require_once plugin_dir_path(__FILE__)."/style1.php";
-			}
 
-			if('style2' == $settings['team_grid_style']){
-				require_once plugin_dir_path(__FILE__)."/style2.php";
-			}
-
-			if('style3' == $settings['team_grid_style']){
-				require_once plugin_dir_path(__FILE__)."/style3.php";
-			}
-
-			if('style4' == $settings['team_grid_style']){
-				require_once plugin_dir_path(__FILE__)."/style4.php";
-			}
-
-			if('style5' == $settings['team_grid_style']){
-				require_once plugin_dir_path(__FILE__)."/style5.php";
-			}	
-
-			if('style6' == $settings['team_grid_style']){
-				require_once plugin_dir_path(__FILE__)."/style6.php";
-			}		
-		}else{ ?>
-
+            <?php if( $settings['team_grid_style'] == 'style1' || $settings['team_grid_style'] == 'style2' || $settings['team_grid_style'] == 'style3' || $settings['team_grid_style'] == 'style4' || $settings['team_grid_style'] == 'style5' ){ ?>
 
 			<div class="rs-team-grid rs-team team-grid-<?php echo esc_html($settings['team_grid_style']);?> <?php echo esc_html($settings['team_grid_popup']);?> rsaddon_lite_box">
 				<?php 
@@ -867,26 +771,47 @@ class Team extends Widget_Base{
 			  	</div>
 
 			</div>
+
+            <?php }elseif( $settings['team_grid_style'] == 'style6' ){ ?>
+
+            <div class="team-member-area team-style-two">
+                <div class="dreamit-team-member-single text-center">
+
+                    <div class="team-member-thumb">
+                        <img src="<?php echo esc_url($settings['memeber_image']['url']);?>"  alt="<?php echo esc_url($settings['memeber_image']['url']);?>" />
+                    </div>
+                    <div class="team-member-content">
+                        <div class="team-member-title">
+                            <h2><?php echo esc_html($settings['title']);?></h2>
+                        </div>
+                        <div class="team-member-sub-title">
+                            <h5><?php echo esc_html($settings['designation']);?></h5>
+                        </div>
+                        <div class="social-icon">
+
+                            <?php foreach ( $settings['social_icon_list'] as $index => $item ) :
+
+                                $target       = !empty($item['link']['is_external']) ? 'target=_blank' : '';
+                                $link         = !empty($item['link']['URL']) ? $item['link']['URL'] : '';
+                            ?>
+
+                            <a href="<?php echo esc_url($link);?>"  <?php echo wp_kses_post($target);?> class="social-icon">
+                                <i class="<?php echo esc_html($item['social_profile']); ?>"></i>
+                            </a>            
+                                    
+                            <?php  endforeach; ?> 
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <?php } ?>
+
 		<?php 
 
-		}		
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

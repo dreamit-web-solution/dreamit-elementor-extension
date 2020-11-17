@@ -337,7 +337,7 @@ Style Tab
 
 		<?php if($settings['select_style']=='one'){ ?>
 
-			<div class="call-to-action">
+			<div class="call-to-action style-one">
 				<div class="call-to-video">
 
 					<?php if( !empty( $settings['video_url']['url'] ) ){ ?>

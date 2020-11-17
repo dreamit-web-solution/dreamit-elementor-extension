@@ -484,7 +484,23 @@ Style Tab
                 ]
             );
             
-
+            $this->add_control(
+                'front_background_overlay_heading',
+                [
+                    'label' => __( 'Background Overlay', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::HEADING,
+                    'separator' => 'before',
+                ]
+            );
+            $this->add_group_control(
+                \Elementor\Group_Control_Background::get_type(),
+                [
+                    'name' => 'front_background_overlay',
+                    'label' => __( 'Background Overlay', 'dreamit-elementor-extension' ),
+                    'types' => [ 'classic', 'gradient' ],
+                    'selector' => '{{WRAPPER}} .flip-box .flip-box-inner .front-part .front-background-overlay',
+                ]
+            );
             $this->add_responsive_control(
                 'flip_box_front_align',
                 [
@@ -508,6 +524,7 @@ Style Tab
                             'icon' => 'fa fa-align-justify',
                         ],
                     ],
+                    'separator' => 'before',
                     'toggle' => true,
                     'selectors' => [
                         '{{WRAPPER}} .front-part' => 'text-align: {{VALUE}}'
@@ -1435,6 +1452,17 @@ Style Tab
                     ],
                 ]
             );
+            $this->add_responsive_control(
+                'back_part_btn_margin',
+                [
+                    'label' => esc_html__( 'Margin', 'dreamit-elementor-extension' ),
+                    'type' => Controls_Manager::DIMENSIONS,
+                    'size_units' => [ 'px', 'em', '%' ],
+                    'selectors' => [
+                        '{{WRAPPER}} .back-part .back-content-part .back-btn-part .back-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ],
+                ]
+            );
 
             $this->add_group_control(
                 \Elementor\Group_Control_Typography::get_type(),
@@ -1634,6 +1662,7 @@ Style Tab
             <div class="flip-box-inner <?php echo esc_attr($settings['flip_position']);?>">
                 <div class="flip-box-wrap">
                     <div class="front-part">
+                        <div class="front-background-overlay"></div>
                         <div class="front-content-part">
                             <?php if( !empty($settings['front_icon']) || !empty($settings['front_image']['url'])){?>
                                 <div class="front-icon-part">

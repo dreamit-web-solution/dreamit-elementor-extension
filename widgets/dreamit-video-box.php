@@ -86,9 +86,29 @@ class VideoBox extends Widget_Base{
             'background_section', [
                 'label' => __( 'Background', 'dreamit-elementor-extension' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
-                'condition' => [
-                	'select_style' => 'one'
-                ]
+				'conditions' => [
+					'relation' => 'or',
+					'terms' => [
+						[
+				            'terms' => [
+				                [
+				                    'name' => 'select_style',
+				                    'operator' => '==',
+				                    'value' => 'one'
+				                ],
+				            ]
+						],
+						[
+							'terms' => [
+				                [
+				                    'name' => 'select_style',
+				                    'operator' => '==',
+				                    'value' => 'three'
+				                ],
+				            ]
+						]
+					]
+				]
             ]
         );
 			$this->add_control(
@@ -125,6 +145,7 @@ Style Tab
 					'options' => [
 						'one' => __( 'One', 'dreamit-elementor-extension' ),
 						'two' => __( 'Two', 'dreamit-elementor-extension' ),
+						'three' => __( 'Three', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
@@ -282,6 +303,39 @@ Style Tab
 			<?php }elseif($settings['select_style']=='two'){ ?>
 
 			<div id="parallax-video" class="single-video style-two">
+				
+				<div class="choose-video-icon">	
+
+					<div class="video-icon">
+						
+						<?php if( !empty($settings['youtube_video_url']['url']) ){ ?>
+						<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo $em_youtube; ?>"><?php \Elementor\Icons_Manager::render_icon( $settings['youtube_video_icon'], [ 'aria-hidden' => 'true' ] ); ?></a>
+						<?php } ?>
+						
+						<?php if( !empty($settings['vimeo_video_url']['url']) ){ ?>
+						<a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="<?php echo $em_vimeo; ?>"><?php \Elementor\Icons_Manager::render_icon( $settings['vimeo_video_icon'], [ 'aria-hidden' => 'true' ] ); ?></a>
+						<?php } ?>
+						
+					</div>
+					
+				</div>
+			</div>
+
+			<?php }elseif($settings['select_style']=='three'){ ?>
+
+			<div id="parallax-video" class="single-video style-three">
+
+				<div class="slider-shape layer-1 layer" data-depth="0.50"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/vp1.jpg'; ?>" alt="01"></div>
+			   <div class="slider-shape layer-2 layer" data-depth="0.45"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/vp2.jpg'; ?>" alt="02"></div>
+			   <div class="slider-shape layer-3 layer" data-depth="0.35"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/vp3.jpg'; ?>" alt="03"></div>
+			   <div class="slider-shape layer-4 layer" data-depth="0.30"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/vp4.jpg'; ?>" alt="04"></div>
+
+				<?php if( !empty($settings['background_image']['url']) ){ ?>
+				<div class="em-video-image">	
+					<img src="<?php echo $settings['background_image']['url']; ?>" alt="" />
+				</div>
+				<?php } ?>
+									
 				
 				<div class="choose-video-icon">	
 

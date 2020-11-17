@@ -247,6 +247,7 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-post-tab.php' );
 		require_once( __DIR__ . '/widgets/dreamit-pricing-table.php');
 		require_once( __DIR__ . '/widgets/dreamit-portfolio.php');
+		require_once( __DIR__ . '/widgets/dreamit-tab.php');
 
 		// Register widget
 
@@ -270,6 +271,7 @@ final class DreamIT_Elementor_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PostTab() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PricingTable());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Portfolio());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Tab());
 		
 		add_action( 'elementor/elements/categories_registered', [$this, 'add_category'] );
 
@@ -314,6 +316,8 @@ final class DreamIT_Elementor_Extension {
 		wp_enqueue_style( 'style1', $plugin_url . 'assets/css/widgets-style.css' );
 
 		wp_enqueue_style( 'flaticon', $plugin_url . 'assets/css/flaticon.css' );
+		
+		wp_enqueue_script( 'tabscript', $plugin_url . 'assets/js/tabscript.js', array ( 'jquery' ), 1.1, true);
 
 	}
 	

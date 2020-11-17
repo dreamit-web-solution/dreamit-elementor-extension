@@ -231,6 +231,9 @@ Style Tab
 						'five' => __( 'Five', 'dreamit-elementor-extension' ),
 						'six' => __( 'Six', 'dreamit-elementor-extension' ),
 						'seven' => __( 'Seven', 'dreamit-elementor-extension' ),
+						'eight' => __( 'Eight', 'dreamit-elementor-extension' ),
+						'nine' => __( 'Nine', 'dreamit-elementor-extension' ),
+						'ten' => __( 'Ten', 'dreamit-elementor-extension' ),
 					],
 					'default' => 'one',
 					
@@ -932,7 +935,6 @@ Style Tab
 
 		<?php }elseif($settings['select_style']=='two'){ ?>
 
-
 			<div class="service-box service-style-two">
 
 				<?php if($settings['icons_type'] == 'icon' ){ ?>
@@ -1149,6 +1151,100 @@ Style Tab
 					</div>
 				</div>
 			</div>
+
+		<?php }elseif($settings['select_style']=='eight'){ ?>
+
+			<div class="service-box service-style-eight">
+
+				<?php if($settings['icons_type'] == 'icon' ){ ?>
+				<div class="service-box-icon">
+					<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
+				</div>
+				<?php } ?>
+
+				<div class="service-box-content">
+
+					<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
+						<h2><?php echo $settings['title_text']; ?></h2>
+					</div>
+
+					<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
+						<p><?php echo $settings['description_text']; ?></p>
+					</div>
+
+					<?php if( 'yes'===$settings['show_button'] ){ ?>
+					<div class="service-btn">
+						<a href="<?php echo esc_url($settings['link']['url']); ?>">
+							<?php echo $settings['button_text']; ?>
+							<i <?php echo $this->get_render_attribute_string( 'j' ); ?>></i>
+						</a>
+					</div><!-- .service-btn	-->
+					<?php } ?>
+
+				</div><!-- .service-box-content -->
+			</div><!-- .service-box .service-style-eight -->
+
+		<?php }elseif($settings['select_style']=='nine'){ ?>
+
+			<div class="service-box service-style-nine">
+
+				<?php if($settings['icons_type'] == 'icon' ){ ?>
+				<div class="service-box-icon">
+					<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
+				</div>
+				<?php } ?>
+
+				<div class="service-box-content">
+
+					<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
+						<h2><?php echo $settings['title_text']; ?></h2>
+					</div>
+
+					<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
+						<p><?php echo $settings['description_text']; ?></p>
+					</div>
+
+					<?php if( 'yes'===$settings['show_button'] ){ ?>
+					<div class="service-btn">
+						<a href="<?php echo esc_url($settings['link']['url']); ?>">
+							<?php echo $settings['button_text']; ?>
+						</a>
+					</div><!-- .service-btn	-->
+					<?php } ?>
+
+				</div><!-- .service-box-content -->
+			</div><!-- .service-box .service-style-nine -->
+
+		<?php }elseif($settings['select_style']=='ten'){ ?>
+
+			<div class="service-box service-style-ten">
+
+				<?php if($settings['icons_type'] == 'icon' ){ ?>
+				<div class="service-box-icon">
+					<i class="<?php echo esc_attr($settings['select_icon']); ?>"></i>
+				</div>
+				<?php } ?>
+
+				<div class="service-box-content">
+
+					<div <?php echo $this->get_render_attribute_string( 'title_text' ); ?> >
+						<h2><?php echo $settings['title_text']; ?></h2>
+					</div>
+
+					<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?> >
+						<p><?php echo $settings['description_text']; ?></p>
+					</div>
+
+					<?php if( 'yes'===$settings['show_button'] ){ ?>
+					<div class="service-btn">
+						<a href="<?php echo esc_url($settings['link']['url']); ?>">
+							<?php echo $settings['button_text']; ?>
+						</a>
+					</div><!-- .service-btn	-->
+					<?php } ?>
+
+				</div><!-- .service-box-content -->
+			</div><!-- .service-box .service-style-ten -->
 
 		<?php }
 	}
