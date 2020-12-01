@@ -248,6 +248,7 @@ final class DreamIT_Elementor_Extension {
 		require_once( __DIR__ . '/widgets/dreamit-pricing-table.php');
 		require_once( __DIR__ . '/widgets/dreamit-portfolio.php');
 		require_once( __DIR__ . '/widgets/dreamit-tab.php');
+		require_once( __DIR__ . '/widgets/dreamit-effective-slider.php');
 
 		// Register widget
 
@@ -272,6 +273,7 @@ final class DreamIT_Elementor_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new PricingTable());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Portfolio());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Tab());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new EffectiveSlider());
 		
 		add_action( 'elementor/elements/categories_registered', [$this, 'add_category'] );
 
